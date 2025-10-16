@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code shit\\AP5PW_Helpdesk\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj": {}
+    "C:\\Users\\Roman Vilčák\\Desktop\\SCHOOL\\Třeťák\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj": {}
   },
   "projects": {
-    "D:\\Code shit\\AP5PW_Helpdesk\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj": {
+    "C:\\Users\\Roman Vilčák\\Desktop\\SCHOOL\\Třeťák\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code shit\\AP5PW_Helpdesk\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
+        "projectUniqueName": "C:\\Users\\Roman Vilčák\\Desktop\\SCHOOL\\Třeťák\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
         "projectName": "AP5PW_Helpdesk",
-        "projectPath": "D:\\Code shit\\AP5PW_Helpdesk\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
-        "packagesPath": "C:\\Users\\Roman\\.nuget\\packages\\",
-        "outputPath": "D:\\Code shit\\AP5PW_Helpdesk\\AP5PW_Helpdesk\\obj\\",
+        "projectPath": "C:\\Users\\Roman Vilčák\\Desktop\\SCHOOL\\Třeťák\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
+        "packagesPath": "C:\\Users\\Roman Vilčák\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Roman Vilčák\\Desktop\\SCHOOL\\Třeťák\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Roman Vilčák\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,32 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -69,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

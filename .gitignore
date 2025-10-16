@@ -1,0 +1,39 @@
+# VS/VSCode a uživatelské soubory
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Build výstupy
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+[Tt]est[Rr]esults/
+
+# Rider/JetBrains
+.idea/
+*.iml
+
+# VS/VSCode
+.vs/
+**/.vs/**
+.vscode/
+**/.vscode/**
+
+# Build výstupy
+bin/
+**/bin/**
+obj/
+**/obj/**
+
+.vs/
+**/.vs/**
+.vscode/
+**/bin/**
+**/obj/**
+*.suo
+*.user
+VSWorkspaceState.json
+slnx.sqlite
