@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AP5PW_Helpdesk.Models.User>
+@{
+    ViewData["Title"] = "Users";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">@ViewData["Title"]</h2>
+    <a asp-action="Create" class="btn btn-primary">Create user</a>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">No users yet. Click "Create user".</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Nickname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Birth date</th>
+                    <th style="width:1%;white-space:nowrap;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>@u.FirstName @u.LastName</td>
+                        <td>@u.Nickname</td>
+                        <td>@u.Email</td>
+                        <td>@u.Phone</td>
+                        <td>@(u.BirthDate?.ToString("yyyy-MM-dd"))</td>
+                        <td class="text-end">
+                            <a asp-action="Details" asp-route-id="@u.Id" class="btn btn-sm btn-outline-secondary">Details</a>
+                            <a asp-action="Edit" asp-route-id="@u.Id" class="btn btn-sm btn-outline-primary ms-1">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@u.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-outline-danger ms-1"
+                                        onclick="return confirm('Delete this user?');">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,38 @@
+﻿@model AP5PW_Helpdesk.Models.User
+@{
+    ViewData["Title"] = "User details";
+}
+
+@if (Model is null)
+{
+    <div class="alert alert-warning">User not found.</div>
+    <a asp-action="Index" class="btn btn-outline-secondary">Back</a>
+}
+else
+{
+    <h2 class="mb-3">@ViewData["Title"]</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-3">First name</dt>
+                <dd class="col-sm-9">@Model.FirstName</dd>
+                <dt class="col-sm-3">Last name</dt>
+                <dd class="col-sm-9">@Model.LastName</dd>
+                <dt class="col-sm-3">Nickname</dt>
+                <dd class="col-sm-9">@Model.Nickname</dd>
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.Email</dd>
+                <dt class="col-sm-3">Phone</dt>
+                <dd class="col-sm-9">@Model.Phone</dd>
+                <dt class="col-sm-3">Birth date</dt>
+                <dd class="col-sm-9">@Model.BirthDate?.ToString("yyyy-MM-dd")</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-outline-secondary ms-2">Back</a>
+    </div>
+}

@@ -1,8 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="p-4 p-md-5 mb-4 bg-light rounded-3">
+    <div class="container py-5">
+        <h1 class="display-5 fw-bold">Welcome</h1>
+        <p class="col-md-8 fs-5">
+            This is the AP5PW Helpdesk demo app.
+        </p>
+        <a asp-controller="Users" asp-action="Index" class="btn btn-primary btn-lg">Go to Users</a>
+    </div>
 </div>
