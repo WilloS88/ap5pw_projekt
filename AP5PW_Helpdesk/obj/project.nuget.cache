@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MXROsKPoTg0=",
+  "dgSpecHash": "vEai+uhQm/A=",
   "success": true,
   "projectFilePath": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "C:\\Users\\kvrag\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.10\\microsoft.entityframeworkcore.abstractions.9.0.10.nupkg.sha512",
     "C:\\Users\\kvrag\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.10\\microsoft.entityframeworkcore.analyzers.9.0.10.nupkg.sha512",
     "C:\\Users\\kvrag\\.nuget\\packages\\microsoft.entityframeworkcore.design\\9.0.10\\microsoft.entityframeworkcore.design.9.0.10.nupkg.sha512",
+    "C:\\Users\\kvrag\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\9.0.10\\microsoft.entityframeworkcore.inmemory.9.0.10.nupkg.sha512",
     "C:\\Users\\kvrag\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.10\\microsoft.entityframeworkcore.relational.9.0.10.nupkg.sha512",
     "C:\\Users\\kvrag\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\9.0.10\\microsoft.entityframeworkcore.tools.9.0.10.nupkg.sha512",
     "C:\\Users\\kvrag\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.10\\microsoft.extensions.caching.abstractions.9.0.10.nupkg.sha512",
@@ -47,5 +48,12 @@
     "C:\\Users\\kvrag\\.nuget\\packages\\system.text.json\\9.0.10\\system.text.json.9.0.10.nupkg.sha512",
     "C:\\Users\\kvrag\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
