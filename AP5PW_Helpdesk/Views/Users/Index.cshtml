@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AP5PW_Helpdesk.Models.User>
+﻿@model IEnumerable<AP5PW_Helpdesk.ViewModels.UserVM>
+
 @{
     ViewData["Title"] = "Users";
 }
@@ -18,11 +19,8 @@ else
         <table class="table table-striped align-middle">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Nickname</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Birth date</th>
+                    <th>Username</th>
+                    <th>Role</th>
                     <th style="width:1%;white-space:nowrap;"></th>
                 </tr>
             </thead>
@@ -30,11 +28,8 @@ else
                 @foreach (var u in Model)
                 {
                     <tr>
-                        <td>@u.FirstName @u.LastName</td>
-                        <td>@u.Nickname</td>
-                        <td>@u.Email</td>
-                        <td>@u.Phone</td>
-                        <td>@(u.BirthDate?.ToString("yyyy-MM-dd"))</td>
+                        <td>@u.Username</td>
+                        <td>@u.RoleName</td>
                         <td class="text-end">
                             <a asp-action="Details" asp-route-id="@u.Id" class="btn btn-sm btn-outline-secondary">Details</a>
                             <a asp-action="Edit" asp-route-id="@u.Id" class="btn btn-sm btn-outline-primary ms-1">Edit</a>
