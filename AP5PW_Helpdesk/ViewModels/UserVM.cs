@@ -1,16 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace AP5PW_Helpdesk.Models
+namespace AP5PW_Helpdesk.ViewModels
 {
-    public class User
+    public class UserVM
     {
         public int Id { get; set; }
 
         [Required, StringLength(50)]
-        public string FirstName { get; set; } = "";
+        public string Username { get; set; } = "";
 
-        [Required, StringLength(50)]
+        [StringLength(50)]
         public string LastName { get; set; } = "";
 
         [Required, StringLength(30)]
@@ -19,10 +19,13 @@ namespace AP5PW_Helpdesk.Models
         [Required, EmailAddress]
         public string Email { get; set; } = "";
 
-        [Phone]
-        public string? Phone { get; set; }
+        [Required]
+        public int RoleId { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? BirthDate { get; set; }
+        [Required]
+        public string RoleName { get; set; } = "";
+
+        [DataType(DataType.Password)]
+        public string? Password { get; set; }
     }
 }

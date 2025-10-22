@@ -2834,11 +2834,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
+      "projectUniqueName": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
       "projectName": "AP5PW_Helpdesk",
-      "projectPath": "E:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
+      "projectPath": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
       "packagesPath": "C:\\Users\\kvrag\\.nuget\\packages\\",
-      "outputPath": "E:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\obj\\",
+      "outputPath": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

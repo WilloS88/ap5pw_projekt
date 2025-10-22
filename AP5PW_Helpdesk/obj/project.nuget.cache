@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wiP1zcMp05Y=",
+  "dgSpecHash": "MXROsKPoTg0=",
   "success": true,
-  "projectFilePath": "E:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
+  "projectFilePath": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kvrag\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\kvrag\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

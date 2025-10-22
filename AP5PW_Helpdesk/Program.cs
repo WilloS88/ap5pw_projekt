@@ -8,11 +8,16 @@ builder.Services.AddControllersWithViews();
 var cs = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
-	var serverVersion = ServerVersion.AutoDetect(cs);
-	opt.UseMySql(cs, serverVersion);
+    var serverVersion = ServerVersion.AutoDetect(cs);
+    opt.UseMySql(cs, serverVersion);
 });
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<
+    AP5PW_Helpdesk.Data.Repositories.IUserRepository,
+    AP5PW_Helpdesk.Data.Repositories.UserRepository>();
+
 
 var app = builder.Build();
 

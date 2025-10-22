@@ -2,6 +2,7 @@
     Layout = null;
     var title = ViewData["Title"] as string ?? "AP5PW_Helpdesk";
 }
+@RenderSection("Scripts", required: false)
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,6 +16,7 @@
     <!-- Vlastní styly (volitelné) -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
