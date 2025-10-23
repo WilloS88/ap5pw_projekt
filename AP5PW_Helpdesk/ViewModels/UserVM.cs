@@ -3,27 +3,24 @@ namespace AP5PW_Helpdesk.ViewModels
 {
     public class UserVM
     {
-        public int Id { get; set; }
+        public int Id                   { get; set; }
 
         [Required, StringLength(50)]
-        public string Username { get; set; } = "";
+        public string UserName          { get; set; } = "";
 
         [StringLength(50)]
-        public string LastName { get; set; } = "";
-
-        [Required, StringLength(30)]
-        public string Nickname { get; set; } = "";
-
-        [Required, EmailAddress]
-        public string Email { get; set; } = "";
+        public string LastName          { get; set; } = "";
 
         [Required]
-        public int RoleId { get; set; }
+        public int RoleId               { get; set; }
 
-        [Required]
-        public string RoleName { get; set; } = "";
+        public string RoleName          { get; set; } = "";
 
-        [DataType(DataType.Password)]
-        public string? Password { get; set; }
+		public int? CompanyId           { get; set; }
+
+		public string? CompanyName      { get; set; } = "";
+
+		[DataType(DataType.Password)]
+        public string? Password         { get; set; }
     }
 }

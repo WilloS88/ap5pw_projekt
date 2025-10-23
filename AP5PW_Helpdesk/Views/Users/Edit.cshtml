@@ -9,9 +9,15 @@
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="mb-3">
-        <label asp-for="Username" class="form-label"></label>
-        <input asp-for="Username" class="form-control" />
-        <span asp-validation-for="Username" class="text-danger"></span>
+        <label asp-for="UserName" class="form-label"></label>
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
@@ -19,11 +25,17 @@
         <input asp-for="Password" class="form-control" type="password" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Company</label>
+        <select asp-for="CompanyId" class="form-select" asp-items="ViewBag.CompanyList">
+        </select>
+        <span asp-validation-for="CompanyId" class="text-danger"></span>
+    </div>
 
     <div class="mb-3">
         <label class="form-label">Role</label>
-        <select asp-for="RoleId" class="form-select"
-                asp-items="@(new SelectList((IEnumerable<AP5PW_Helpdesk.Entities.Role>)ViewBag.Roles, "Id", "Name"))">
+        <select asp-for="RoleId" class="form-select" asp-items="ViewBag.RoleList">
         </select>
         <span asp-validation-for="RoleId" class="text-danger"></span>
     </div>

@@ -23,7 +23,7 @@ namespace AP5PW_Helpdesk.Data
 
 			// unique username
 			m.Entity<User>()
-				.HasIndex(u => u.Username)
+				.HasIndex(u => u.UserName)
 				.IsUnique();
 
 			// money precision

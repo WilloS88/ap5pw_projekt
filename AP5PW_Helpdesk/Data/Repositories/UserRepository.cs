@@ -14,7 +14,7 @@ namespace AP5PW_Helpdesk.Data.Repositories
         public Task<List<UserEntity>> GetAllAsync() =>
             _db.Users.AsNoTracking()
                      .Include(u => u.Role)
-                     .OrderBy(u => u.Username)
+                     .OrderBy(u => u.UserName)
                      .ToListAsync();
 
         public Task<UserEntity?> GetByIdAsync(int id) =>
@@ -22,7 +22,7 @@ namespace AP5PW_Helpdesk.Data.Repositories
                      .FirstOrDefaultAsync(u => u.Id == id);
 
         public Task<bool> UsernameExistsAsync(string username, int? excludeId = null) =>
-            _db.Users.AnyAsync(u => u.Username == username && (!excludeId.HasValue || u.Id != excludeId.Value));
+            _db.Users.AnyAsync(u => u.UserName == username && (!excludeId.HasValue || u.Id != excludeId.Value));
 
         public async Task AddAsync(UserEntity user)
         {

@@ -9,10 +9,16 @@
     <dd class="col-sm-10">@Model.Id</dd>
 
     <dt class="col-sm-2">Username</dt>
-    <dd class="col-sm-10">@Model.Username</dd>
+    <dd class="col-sm-10">@Model.UserName</dd>
+
+    <dt class="col-sm-2">Lastname</dt>
+    <dd class="col-sm-10">@Model.LastName</dd>
 
     <dt class="col-sm-2">Role</dt>
     <dd class="col-sm-10">@Model.RoleName</dd>
+
+    <dt class="col-sm-2">Company</dt>
+    <dd class="col-sm-10">@Model.CompanyName</dd>
 </dl>
 
 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
