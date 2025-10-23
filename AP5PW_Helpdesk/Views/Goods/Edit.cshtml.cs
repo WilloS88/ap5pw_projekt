@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AP5PW_Helpdesk.Views.Goods
 {
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
         public void OnGet()
         {

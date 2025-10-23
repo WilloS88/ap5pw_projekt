@@ -11,7 +11,7 @@ namespace AP5PW_Helpdesk.Data
 		public DbSet<Company> Companies => Set<Company>();
 		public DbSet<Role> Roles => Set<Role>();
 		public DbSet<User> Users => Set<User>();
-		public DbSet<Goods> Goods => Set<Goods>();
+		public DbSet<Good> Goods => Set<Good>();
 		public DbSet<Order> Orders => Set<Order>();
 		public DbSet<OrderedGoods> OrderedGoods => Set<OrderedGoods>();
 		public DbSet<Warehouse> Warehouses => Set<Warehouse>();
@@ -27,7 +27,7 @@ namespace AP5PW_Helpdesk.Data
 				.IsUnique();
 
 			// money precision
-			m.Entity<Goods>()
+			m.Entity<Good>()
 				.Property(g => g.Price)
 				.HasColumnType("decimal(18,2)");
 
@@ -68,9 +68,9 @@ namespace AP5PW_Helpdesk.Data
 
 			// OrderedGoods -> Goods
 			m.Entity<OrderedGoods>()
-				.HasOne(og => og.Goods)
+				.HasOne(og => og.Good)
 				.WithMany(g => g.OrderedGoods)
-				.HasForeignKey(og => og.GoodsId)
+				.HasForeignKey(og => og.GoodId)
 				.OnDelete(DeleteBehavior.Restrict);
 
 			// Warehouse -> Company

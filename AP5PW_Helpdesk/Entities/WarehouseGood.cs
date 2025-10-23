@@ -9,6 +9,6 @@
 		public Warehouse Warehouse { get; set; } = null!;
 
 		public int GoodsId { get; set; }
-		public Goods Goods { get; set; } = null!;
+		public Good Goods { get; set; } = null!;
 	}
 }

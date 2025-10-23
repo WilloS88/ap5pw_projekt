@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AP5PW_Helpdesk.ViewModels.GoodVM>
+
+@{
+    ViewData["Title"] = "Goods";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">@ViewData["Title"]</h2>
+    <a asp-action="Create" class="btn btn-primary">Create good</a>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">No goods yet. Click "Create user".</div>
+}
+else
+{
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Product Number</th>
+                <th style="width:1%;white-space:nowrap;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.Name</td>
+                    <td>@u.Price</td>
+                    <td>@u.ProductNum</td>
+                    <td class="text-end">
+                        <a asp-action="Details"     asp-route-id="@u.Id"    class="btn btn-sm btn-outline-secondary">Details</a>
+                        <a asp-action="Edit"        asp-route-id="@u.Id"    class="btn btn-sm btn-outline-primary ms-1">Edit</a>
+                        <form asp-action="Delete"   asp-route-id="@u.Id"    method="post" class="d-inline">
+                            <button 
+                                type="submit" 
+                                onclick="return confirm('Delete this user?');"
+                                class="btn btn-sm btn-outline-danger ms-1"
+                            >
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

@@ -17,6 +17,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<
     AP5PW_Helpdesk.Data.Repositories.IUserRepository,
     AP5PW_Helpdesk.Data.Repositories.UserRepository>();
+builder.Services.AddScoped<
+	AP5PW_Helpdesk.Data.Repositories.IGoodRepository,
+	AP5PW_Helpdesk.Data.Repositories.GoodRepository>();
 
 
 var app = builder.Build();
