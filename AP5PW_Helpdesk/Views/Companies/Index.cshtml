@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AP5PW_Helpdesk.ViewModels.CompanyVM>
+
+@{
+    ViewData["Title"] = "Companies";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">@ViewData["Title"]</h2>
+    <a asp-action="Create" class="btn btn-primary">Create company</a>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">No companies yet. Click "Create company".</div>
+}
+else
+{
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>Postcode</th>
+                <th style="width:1%;white-space:nowrap;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.Name</td>
+                    <td>@u.City</td>
+                    <td>@u.Street</td>
+                    <td>@u.Postcode</td>
+                    <td class="text-end">
+                        <a asp-action="Details"     asp-route-id="@u.Id"    class="btn btn-sm btn-outline-secondary">Details</a>
+                        <a asp-action="Edit"        asp-route-id="@u.Id"    class="btn btn-sm btn-outline-primary ms-1">Edit</a>
+                        <form asp-action="Delete"   asp-route-id="@u.Id"    method="post" class="d-inline">
+                            <button 
+                                type="submit" 
+                                onclick="return confirm('Delete this user?');"
+                                class="btn btn-sm btn-outline-danger ms-1"
+                            >
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

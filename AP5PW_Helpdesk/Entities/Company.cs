@@ -2,14 +2,14 @@
 {
 	public class Company
 	{
-		public int Id { get; set; }
-		public string Name { get; set; } = "";
-		public string? Street { get; set; }
-		public string? City { get; set; }
-		public string? Postcode { get; set; }
+		public int Id				{ get; set; }
+		public string Name			{ get; set; } = "";
+		public string? Street		{ get; set; }
+		public string? City			{ get; set; }
+		public string? Postcode		{ get; set; }
 
-		public ICollection<User> Users { get; set; } = new List<User>();
-		public ICollection<Order> Orders { get; set; } = new List<Order>();
-		public ICollection<Warehouse> Warehouses { get; set; } = new List<Warehouse>();
+		public ICollection<User> Users				{ get; set; } = [];
+		public ICollection<Order> Orders			{ get; set; } = [];
+		public ICollection<Warehouse> Warehouses	{ get; set; } = [];
 	}
 }

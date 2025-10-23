@@ -1,6 +1,6 @@
-﻿@model AP5PW_Helpdesk.ViewModels.GoodVM
+﻿@model AP5PW_Helpdesk.ViewModels.CompanyVM
 @{
-    ViewData["Title"] = "Good details";
+    ViewData["Title"] = "Company details";
 }
 <h2>@ViewData["Title"]</h2>
 
@@ -11,11 +11,14 @@
     <dt class="col-sm-2">Username</dt>
     <dd class="col-sm-10">@Model.Name</dd>
 
-    <dt class="col-sm-2">Price</dt>
-    <dd class="col-sm-10">@Model.Price</dd>
+    <dt class="col-sm-2">City</dt>
+    <dd class="col-sm-10">@Model.City</dd>
 
-    <dt class="col-sm-2">Product Number</dt>
-    <dd class="col-sm-10">@Model.ProductNum</dd>
+    <dt class="col-sm-2">Street</dt>
+    <dd class="col-sm-10">@Model.Street</dd>
+
+    <dt class="col-sm-2">Postcode</dt>
+    <dd class="col-sm-10">@Model.Postcode</dd>
 </dl>
 
 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
