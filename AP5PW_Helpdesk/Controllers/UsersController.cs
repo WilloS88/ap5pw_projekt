@@ -177,7 +177,7 @@ namespace AP5PW_Helpdesk.Controllers
 		[HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            await _repo.DeleteAsync(id);
+            await _repo.DeleteAsync(id);	
             return RedirectToAction(nameof(Index));
         }
     }

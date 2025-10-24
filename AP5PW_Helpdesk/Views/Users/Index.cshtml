@@ -1,53 +1,127 @@
 ﻿@model IEnumerable<AP5PW_Helpdesk.ViewModels.UserVM>
-
 @{
     ViewData["Title"] = "Users";
 }
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h2 class="mb-0">@ViewData["Title"]</h2>
-    <a asp-action="Create" class="btn btn-primary">Create user</a>
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Users</h5>
+        <button type="button"
+                class="btn btn-gradient-blue btn-sm js-open-modal"
+                data-url="@Url.Action("Create", "Users")"
+                data-title="Create new user">
+            + Create user
+        </button>
+    </div>
+
+    <div class="table-responsive">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="p-4">
+                <div class="alert alert-info mb-0">No users yet. Click “Create user”.</div>
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Lastname</th>
+                        <th>Company</th>
+                        <th>Role</th>
+                        <th class="text-end" style="width:1%;white-space:nowrap;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var u in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@u.UserName</td>
+                            <td>@u.LastName</td>
+                            <td>@u.CompanyName</td>
+                            <td>@u.RoleName</td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end flex-wrap gap-2">
+                                    <button type="button"
+                                            class="btn btn-sm btn-gradient-gray js-open-modal"
+                                            data-url="@Url.Action("Details", "Users", new { id = u.Id })"
+                                            data-title="User details">
+                                        Details
+                                    </button>
+
+                                    <button type="button"
+                                            class="btn btn-sm btn-gradient-blue js-open-modal"
+                                            data-url="@Url.Action("Edit", "Users", new { id = u.Id })"
+                                            data-title="Edit user">
+                                        Edit
+                                    </button>
+
+                                    <form asp-action="Delete" asp-route-id="@u.Id" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm btn-gradient-red"
+                                                onclick="return confirm('Delete this user?');">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
 </div>
 
-@if (Model == null || !Model.Any())
-{
-    <div class="alert alert-info">No users yet. Click "Create user".</div>
-}
-else
-{
-    <table class="table table-striped align-middle">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Lastname</th>
-                <th>Company</th>
-                <th>Role</th>
-                <th style="width:1%;white-space:nowrap;"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var u in Model)
-            {
-                <tr>
-                    <td>@u.UserName</td>
-                    <td>@u.LastName</td>
-                    <td>@u.CompanyName</td>
-                    <td>@u.RoleName</td>
-                    <td class="text-end">
-                        <a asp-action="Details"     asp-route-id="@u.Id"    class="btn btn-sm btn-outline-secondary">Details</a>
-                        <a asp-action="Edit"        asp-route-id="@u.Id"    class="btn btn-sm btn-outline-primary ms-1">Edit</a>
-                        <form asp-action="Delete"   asp-route-id="@u.Id"    method="post" class="d-inline">
-                            <button 
-                                type="submit" 
-                                onclick="return confirm('Delete this user?');"
-                                class="btn btn-sm btn-outline-danger ms-1"
-                            >
-                                Delete
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<!-- Univerzální modal -->
+<div class="modal fade" id="appModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="appModalLabel">Loading…</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-gradient-gray" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-gradient-blue d-none" id="appModalSaveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+@section Scripts {
+    <script>
+        (function () {
+            const modalEl = document.getElementById('appModal');
+            const modal = new bootstrap.Modal(modalEl);
+            const modalTitle = modalEl.querySelector('.modal-title');
+            const modalBody  = modalEl.querySelector('.modal-body');
+            const saveBtn    = document.getElementById('appModalSaveBtn');
+
+            document.querySelectorAll('.js-open-modal').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    modalTitle.textContent = btn.dataset.title || 'Details';
+                    modalBody.innerHTML = '<div class="text-center py-4">Loading…</div>';
+                    saveBtn.classList.add('d-none');
+
+                    try {
+                        const res = await fetch(btn.dataset.url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+                        const html = await res.text();
+                        modalBody.innerHTML = html;
+
+                        const form = modalBody.querySelector('form');
+                        if (form) {
+                            saveBtn.classList.remove('d-none');
+                            saveBtn.onclick = () => form.submit();
+                        }
+                    } catch {
+                        modalBody.innerHTML = '<div class="alert alert-danger">Failed to load content.</div>';
+                        saveBtn.classList.add('d-none');
+                    }
+
+                    modal.show();
+                });
+            });
+        })();
+    </script>
+}

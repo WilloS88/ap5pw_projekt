@@ -1,46 +1,60 @@
 ﻿@model AP5PW_Helpdesk.ViewModels.UserVM
 @{
     ViewData["Title"] = "Create user";
+    var isAjax = Context?.Request?.Headers?["X-Requested-With"].ToString() == "XMLHttpRequest";
+    if (isAjax) { Layout = null; }
 }
-<h2>@ViewData["Title"]</h2>
 
-<form asp-action="Create" method="post" class="mt-3">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="card bg-dark border-0 shadow-sm">
+    <div class="card-body">
+        <form asp-action="Create" method="post" class="mt-1" id="createForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-    <div class="mb-3">
-        <label asp-for="UserName" class="form-label"></label>
-        <input asp-for="UserName" class="form-control" />
-        <span asp-validation-for="UserName" class="text-danger"></span>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="UserName" class="form-label text-light"></label>
+                    <input asp-for="UserName" class="form-control bg-dark text-light border-secondary" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="LastName" class="form-label text-light"></label>
+                    <input asp-for="LastName" class="form-control bg-dark text-light border-secondary" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Password" class="form-label text-light"></label>
+                    <input asp-for="Password" type="password" class="form-control bg-dark text-light border-secondary" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label text-light">Role</label>
+                    <select asp-for="RoleId" class="form-select bg-dark text-light border-secondary" asp-items="ViewBag.RoleList">
+                        <option value="">-- select role --</option>
+                    </select>
+                    <span asp-validation-for="RoleId" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label text-light">Company</label>
+                    <select asp-for="CompanyId" class="form-select bg-dark text-light border-secondary" asp-items="ViewBag.CompanyList">
+                        <option value="">-- select company --</option>
+                    </select>
+                    <span asp-validation-for="CompanyId" class="text-danger"></span>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
 
-    <div class="mb-3">
-        <label asp-for="LastName" class="form-label"></label>
-        <input asp-for="LastName" class="form-control" />
-        <span asp-validation-for="LastName" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Password" class="form-label"></label>
-        <input asp-for="Password" class="form-control" type="password" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label">Role</label>
-        <select asp-for="RoleId" class="form-select" asp-items="ViewBag.RoleList">
-            <option value="">-- select role --</option>
-        </select>
-        <span asp-validation-for="RoleId" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label">Company</label>
-        <select asp-for="CompanyId" class="form-select" asp-items="ViewBag.CompanyList">
-            <option value="">-- select company --</option>
-        </select>
-        <span asp-validation-for="CompanyId" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
-</form>
+@section Scripts {
+    <script>
+        // Pokud modal načítá obsah AJAXem, přidá form ID
+        (function () {
+            const form = document.querySelector('form[asp-action="Create"]');
+            if (form) form.id = 'createForm';
+        })();
+    </script>
+}
