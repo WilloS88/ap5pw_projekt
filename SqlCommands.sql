@@ -49,8 +49,24 @@ CREATE TABLE IF NOT EXISTS `Goods` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-INSERT INTO `Roles` (`Name`) VALUES ('Admin'), ('User') ('Moderator');
+CREATE TABLE IF NOT EXISTS `Warehouses` (
+  `Id`        INT NOT NULL AUTO_INCREMENT,
+  `Name`      VARCHAR(200) NOT NULL,
+  `CompanyId` INT NOT NULL,
 
+  PRIMARY KEY (`Id`),
+  KEY `IX_Warehouses_CompanyId` (`CompanyId`),
+
+  UNIQUE KEY `UX_Warehouses_CompanyId_Name` (`CompanyId`,`Name`),
+
+  CONSTRAINT `FK_Warehouses_Company_CompanyId`
+    FOREIGN KEY (`CompanyId`) REFERENCES `Companies`(`Id`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+INSERT INTO `Roles` (`Name`) VALUES ('Admin'), ('User') ('Moderator');
 
 INSERT INTO `Companies` (`Name`, `Street`, `City`, `Postcode`) VALUES
 ('TechSolutions s.r.o.', 'Nádražní 45', 'Brno', '602 00'),
@@ -59,10 +75,17 @@ INSERT INTO `Companies` (`Name`, `Street`, `City`, `Postcode`) VALUES
 ('Kovoplast s.r.o.', 'U Průmyslovky 32', 'Ostrava', '708 00'),
 ('GreenMarket CZ s.r.o.', 'Jiráskova 18', 'Plzeň', '301 00');
 
-
 INSERT INTO `Goods` (`Name`, `Price`, `ProductNum`) VALUES
 ('zbozi1', 14990.00, 'zb1'),
 ('zbozi2', 399.00,   'zb2'),
 ('zbozi3', 1299.00,  'zb3'),
 ('zbozi4', 5490.00,  'zb4'),
 ('zbozi5', 890.00,   'zb5');
+
+INSERT INTO `Warehouses` (`Name`, `CompanyId`) VALUES
+('Hlavní sklad Praha', 1),
+('Expediční sklad Brno', 1),
+('Sklad Ostrava – Sever', 2),
+('Sklad Zlín', 2),
+('Regionální sklad Plzeň', 3),
+('Konsignační sklad Hradec', 3);

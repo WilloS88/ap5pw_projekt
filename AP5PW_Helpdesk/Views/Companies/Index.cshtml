@@ -36,8 +36,8 @@ else
                         <a asp-action="Details"     asp-route-id="@u.Id"    class="btn btn-sm btn-outline-secondary">Details</a>
                         <a asp-action="Edit"        asp-route-id="@u.Id"    class="btn btn-sm btn-outline-primary ms-1">Edit</a>
                         <form asp-action="Delete"   asp-route-id="@u.Id"    method="post" class="d-inline">
-                            <button 
-                                type="submit" 
+                            <button
+                                type="submit"
                                 onclick="return confirm('Delete this user?');"
                                 class="btn btn-sm btn-outline-danger ms-1"
                             >

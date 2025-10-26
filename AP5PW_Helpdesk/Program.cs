@@ -23,6 +23,10 @@ builder.Services.AddScoped<
 builder.Services.AddScoped<
     AP5PW_Helpdesk.Data.Repositories.ICompanyRepository,
     AP5PW_Helpdesk.Data.Repositories.CompanyRepository>();
+builder.Services.AddScoped<
+    AP5PW_Helpdesk.Data.Repositories.IWarehouseRepository,
+    AP5PW_Helpdesk.Data.Repositories.WarehouseRepository>();
+
 
 var app = builder.Build();
 

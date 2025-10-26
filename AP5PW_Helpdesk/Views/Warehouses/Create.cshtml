@@ -1,0 +1,26 @@
+﻿@model AP5PW_Helpdesk.ViewModels.WarehouseVM
+@{
+    ViewData["Title"] = "Create warehouse";
+}
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post" class="mt-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Company</label>
+        <select asp-for="CompanyId" class="form-select" asp-items="ViewBag.CompanyList">
+            <option value="">-- select company --</option>
+        </select>
+        <span asp-validation-for="CompanyId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+</form>
