@@ -1,0 +1,17 @@
+﻿@model AP5PW_Helpdesk.ViewModels.Order.OrderItemVM
+@{
+    // Používá GoodList z ViewBagu (SelectList), který posílá controller.
+}
+<tr>
+    <td>
+        <select asp-for="GoodId" class="form-select" asp-items="ViewBag.GoodList"></select>
+        <span asp-validation-for="GoodId" class="text-danger"></span>
+    </td>
+    <td>
+        <input asp-for="Quantity" class="form-control text-end" type="number" min="1" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </td>
+    <td>
+        <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest('tr').remove()">Remove</button>
+    </td>
+</tr>

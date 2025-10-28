@@ -1,0 +1,95 @@
+﻿@model AP5PW_Helpdesk.ViewModels.Order.OrderEditVM
+@{
+    ViewData["Title"] = "Create order";
+}
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post" class="mt-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label class="form-label">Company</label>
+            <select asp-for="CompanyId" class="form-select" asp-items="ViewBag.CompanyList">
+                <option value="">-- select company --</option>
+            </select>
+            <span asp-validation-for="CompanyId" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">User</label>
+            <select asp-for="UserId" class="form-select" asp-items="ViewBag.UserList">
+                <option value="">-- select user --</option>
+            </select>
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-2">
+            <label asp-for="ExpeditionDate" class="form-label"></label>
+            <input asp-for="ExpeditionDate" class="form-control" type="date" />
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <div class="form-check">
+                <input asp-for="IsBuyOrder" class="form-check-input" />
+                <label asp-for="IsBuyOrder" class="form-check-label"></label>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <h5>Items</h5>
+
+    <!-- skrytý select kvůli rychlému klonování options pro JS -->
+    <select id="GoodOptions" class="d-none" asp-items="ViewBag.GoodList"></select>
+
+    <table class="table table-sm align-middle" id="itemsTable">
+        <thead>
+            <tr>
+                <th style="width:60%;">Good</th>
+                <th style="width:20%;" class="text-end">Qty</th>
+                <th style="width:20%;"></th>
+            </tr>
+        </thead>
+        <tbody id="itemsBody">
+            @for (int i = 0; i < Model.Items.Count; i++)
+            {
+                <partial name="_OrderItemRow" model="Model.Items[i]" />
+            }
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-outline-secondary" id="addRowBtn">Add item</button>
+
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        (function() {
+            const addBtn = document.getElementById('addRowBtn');
+            const body = document.getElementById('itemsBody');
+            const goodOptionsHtml = document.getElementById('GoodOptions').innerHTML;
+
+            addBtn.addEventListener('click', function () {
+                const index = body.querySelectorAll('tr').length;
+
+                const row = document.createElement('tr');
+                row.innerHTML =
+                    '<td>' +
+                        '<select name="Items[' + index + '].GoodId" class="form-select">' + goodOptionsHtml + '</select>' +
+                    '</td>' +
+                    '<td>' +
+                        '<input name="Items[' + index + '].Quantity" class="form-control text-end" type="number" value="1" min="1" />' +
+                    '</td>' +
+                    '<td>' +
+                        '<button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest(\'tr\').remove()">Remove</button>' +
+                    '</td>';
+
+                body.appendChild(row);
+            });
+        })();
+    </script>
+}

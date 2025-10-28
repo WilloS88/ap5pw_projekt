@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AP5PW_Helpdesk.ViewModels.Order.OrderVM>
+@{
+    ViewData["Title"] = "Orders";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">@ViewData["Title"]</h2>
+    <a asp-action="Create" class="btn btn-primary">New order</a>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">No orders yet. Click "New order".</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Company</th>
+                    <th>User</th>
+                    <th>Expedition</th>
+                    <th>Type</th>
+                    <th class="text-end">Items</th>
+                    <th style="width:1%;white-space:nowrap;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var o in Model)
+                {
+                    <tr>
+                        <td>@o.Id</td>
+                        <td>@o.CompanyName</td>
+                        <td>@o.UserName</td>
+                        <td>@(o.ExpeditionDate?.ToString("yyyy-MM-dd"))</td>
+                        <td>
+                            @if (o.IsBuyOrder)
+                            {
+                                <span class="badge bg-success">BUY</span>
+                            }
+                            else
+                            {
+
+                                <span class="badge bg-warning text-dark">SELL</span>
+                            }
+                        </td>
+                        <td class="text-end">@o.ItemsCount</td>
+                        <td class="text-end">
+                            <a asp-action="Details" asp-route-id="@o.Id" class="btn btn-sm btn-outline-secondary">Details</a>
+                            <a asp-action="Edit" asp-route-id="@o.Id" class="btn btn-sm btn-outline-primary ms-1">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@o.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-outline-danger ms-1"
+                                        onclick="return confirm('Delete this order?');">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

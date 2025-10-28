@@ -65,6 +65,48 @@ CREATE TABLE IF NOT EXISTS `Warehouses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+CREATE TABLE IF NOT EXISTS `Orders` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `CompanyId` INT NOT NULL,
+  `UserId` INT NOT NULL,
+  `ExpeditionDate` DATE NULL,
+  `IsBuyOrder` TINYINT(1) NOT NULL DEFAULT 1,
+
+  PRIMARY KEY (`Id`),
+
+  KEY `IX_Orders_CompanyId` (`CompanyId`),
+  KEY `IX_Orders_UserId` (`UserId`),
+
+  CONSTRAINT `FK_Orders_Companies_CompanyId`
+    FOREIGN KEY (`CompanyId`) REFERENCES `Companies`(`Id`)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+
+  CONSTRAINT `FK_Orders_Users_UserId`
+    FOREIGN KEY (`UserId`) REFERENCES `Users`(`Id`)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS `OrderedGoods` (
+  `Id`        INT NOT NULL AUTO_INCREMENT,
+  `OrderId`   INT NOT NULL,
+  `GoodId`    INT NOT NULL,
+  `Quantity`  INT NOT NULL DEFAULT 1,
+
+  PRIMARY KEY (`Id`),
+
+  KEY `IX_OrderedGoods_OrderId` (`OrderId`),
+  KEY `IX_OrderedGoods_GoodId`  (`GoodId`),
+
+  CONSTRAINT `FK_OrderedGoods_Orders_OrderId`
+    FOREIGN KEY (`OrderId`) REFERENCES `Orders`(`Id`)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+
+  CONSTRAINT `FK_OrderedGoods_Goods_GoodId`
+    FOREIGN KEY (`GoodId`)  REFERENCES `Goods`(`Id`)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 INSERT INTO `Roles` (`Name`) VALUES ('Admin'), ('User') ('Moderator');
 
@@ -89,3 +131,14 @@ INSERT INTO `Warehouses` (`Name`, `CompanyId`) VALUES
 ('Sklad Zlín', 2),
 ('Regionální sklad Plzeň', 3),
 ('Konsignační sklad Hradec', 3);
+
+INSERT INTO `Orders` (`CompanyId`, `UserId`, `ExpeditionDate`, `IsBuyOrder`)
+VALUES
+  (1, 1, '2025-10-30', 1),  
+  (1, 2, '2025-11-02', 0),  
+  (2, 3, NULL,           1);
+
+INSERT INTO `OrderedGoods` (`OrderId`, `GoodId`, `Quantity`)
+VALUES
+  (1, 1, 2),
+  (1, 3, 1);

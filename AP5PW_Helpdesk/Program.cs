@@ -26,7 +26,9 @@ builder.Services.AddScoped<
 builder.Services.AddScoped<
     AP5PW_Helpdesk.Data.Repositories.IWarehouseRepository,
     AP5PW_Helpdesk.Data.Repositories.WarehouseRepository>();
-
+builder.Services.AddScoped<
+	AP5PW_Helpdesk.Data.Repositories.IOrderRepository,
+	AP5PW_Helpdesk.Data.Repositories.OrderRepository>();
 
 var app = builder.Build();
 
