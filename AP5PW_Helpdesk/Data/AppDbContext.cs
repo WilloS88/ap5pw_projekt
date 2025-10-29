@@ -59,6 +59,13 @@ namespace AP5PW_Helpdesk.Data
 				.HasForeignKey(o => o.CompanyId)
 				.OnDelete(DeleteBehavior.Restrict);
 
+			// Order -> Warehouse (many-to-one)
+			m.Entity<Order>()
+				.HasOne(o => o.Warehouse)
+				.WithMany() // no back-collection
+				.HasForeignKey(o => o.WarehouseId)
+				.OnDelete(DeleteBehavior.Restrict);
+
 			// OrderedGoods -> Order
 			m.Entity<OrderedGoods>()
 				.HasOne(og => og.Order)
@@ -79,6 +86,11 @@ namespace AP5PW_Helpdesk.Data
 				.WithMany(c => c.Warehouses)
 				.HasForeignKey(w => w.CompanyId)
 				.OnDelete(DeleteBehavior.Cascade);
+
+			// WarehousesGoods: unique pair (WarehouseId, GoodsId)
+			m.Entity<WarehouseGood>()
+				.HasIndex(x => new { x.WarehouseId, x.GoodsId })
+				.IsUnique();
 
 			// WarehousesGoods (link s extra sloupcem Quantity)
 			m.Entity<WarehouseGood>()

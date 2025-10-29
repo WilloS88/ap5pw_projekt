@@ -9,6 +9,9 @@ namespace AP5PW_Helpdesk.ViewModels.Order
 		public int CompanyId				{ get; set; }
 		public string CompanyName			{ get; set; } = "";
 
+		public int WarehouseId				{ get; set; }
+		public string WarehouseName			{ get; set; } = "";
+
 		public int UserId					{ get; set; }
 		public string UserName				{ get; set; } = "";
 

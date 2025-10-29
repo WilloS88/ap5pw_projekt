@@ -10,11 +10,29 @@
     <div class="row g-3">
         <div class="col-md-4">
             <label class="form-label">Company</label>
-            <select asp-for="CompanyId" class="form-select" asp-items="ViewBag.CompanyList">
+            <select asp-for="CompanyId"
+                    class="form-select"
+                    asp-items="ViewBag.CompanyList"
+                    id="CompanySelect">
                 <option value="">-- select company --</option>
             </select>
             <span asp-validation-for="CompanyId" class="text-danger"></span>
         </div>
+
+        <div class="row g-3 mt-1">
+            <div class="col-md-4">
+                <label class="form-label">Warehouse</label>
+                <select asp-for="WarehouseId"
+                        class="form-select"
+                        asp-items="ViewBag.WarehouseList"
+                        id="WarehouseSelect"
+                        data-selected="@Model.WarehouseId">
+                    <option value="">-- select warehouse --</option>
+                </select>
+                <span asp-validation-for="WarehouseId" class="text-danger"></span>
+            </div>
+        </div>
+
 
         <div class="col-md-4">
             <label class="form-label">User</label>
@@ -39,8 +57,6 @@
 
     <hr />
     <h5>Items</h5>
-
-    <!-- skrytý select kvůli rychlému klonování options pro JS -->
     <select id="GoodOptions" class="d-none" asp-items="ViewBag.GoodList"></select>
 
     <table class="table table-sm align-middle" id="itemsTable">
@@ -92,4 +108,72 @@
             });
         })();
     </script>
+    <script>
+        (function () {
+            const companySel   = document.getElementById('CompanySelect');   // ted opravdu existuje
+            const warehouseSel = document.getElementById('WarehouseSelect');
+            const preselected  = warehouseSel.getAttribute('data-selected'); // pro Edit
+
+            function setDisabled(disabled) {
+                warehouseSel.disabled = disabled;
+            }
+
+            function renderOptions(items, selectedValue) {
+                // reset
+                warehouseSel.innerHTML = '<option value="">-- select warehouse --</option>';
+
+                for (const w of items) {
+                    const opt = document.createElement('option');
+                    opt.value = String(w.id);
+                    opt.textContent = w.name;
+                    if (selectedValue && String(selectedValue) === String(w.id)) {
+                        opt.selected = true;
+                    }
+                    warehouseSel.appendChild(opt);
+                }
+            }
+
+            async function loadWarehouses(companyId, selectedValue) {
+                renderOptions([], null);
+                if (!companyId) { setDisabled(true); return; }
+
+                setDisabled(true);
+                // volitelne: ukaz "loading"
+                const loadingOpt = document.createElement('option');
+                loadingOpt.textContent = 'Loading...';
+                loadingOpt.disabled = true; loadingOpt.selected = true;
+                warehouseSel.appendChild(loadingOpt);
+
+                try {
+                    const resp = await fetch(`/Orders/WarehousesForCompany?companyId=${encodeURIComponent(companyId)}`);
+                    const data = await resp.json(); // [{ id, name }]
+                    renderOptions(data, selectedValue);
+                } catch (e) {
+                    renderOptions([], null);
+                    const errOpt = document.createElement('option');
+                    errOpt.textContent = 'Failed to load';
+                    errOpt.disabled = true; errOpt.selected = true;
+                    warehouseSel.appendChild(errOpt);
+                } finally {
+                    setDisabled(false);
+                }
+            }
+
+            // Zmena firmy -> nacist sklady, zrusit predvyber
+            companySel.addEventListener('change', () => {
+                warehouseSel.setAttribute('data-selected', '');
+                loadWarehouses(companySel.value, null);
+            });
+
+            // Inicializace:
+            // - Create: companySel je prazdne -> sklad disable
+            // - Edit: companySel ma hodnotu -> nacti sklady a predvyber Model.WarehouseId
+            if (companySel.value) {
+                loadWarehouses(companySel.value, preselected);
+            } else {
+                setDisabled(true);
+            }
+        })();
+    </script>
+
 }

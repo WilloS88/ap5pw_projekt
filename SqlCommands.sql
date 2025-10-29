@@ -86,6 +86,13 @@ CREATE TABLE IF NOT EXISTS `Orders` (
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+ALTER TABLE Orders
+  ADD COLUMN WarehouseId INT NOT NULL;
+
+ALTER TABLE Orders
+  ADD CONSTRAINT FK_Orders_Warehouses
+  FOREIGN KEY (WarehouseId) REFERENCES Warehouses(Id)
+  ON DELETE RESTRICT;
 
 CREATE TABLE IF NOT EXISTS `OrderedGoods` (
   `Id`        INT NOT NULL AUTO_INCREMENT,
@@ -104,6 +111,22 @@ CREATE TABLE IF NOT EXISTS `OrderedGoods` (
 
   CONSTRAINT `FK_OrderedGoods_Goods_GoodId`
     FOREIGN KEY (`GoodId`)  REFERENCES `Goods`(`Id`)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `WarehousesGoods` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Quantity` INT NOT NULL DEFAULT 0,
+  `WarehouseId` INT NOT NULL,
+  `GoodsId` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `IX_WarehousesGoods_WarehouseId` (`WarehouseId`),
+  KEY `IX_WarehousesGoods_GoodsId` (`GoodsId`),
+  CONSTRAINT `FK_WarehousesGoods_Warehouses_WarehouseId`
+    FOREIGN KEY (`WarehouseId`) REFERENCES `Warehouses` (`Id`)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_WarehousesGoods_Goods_GoodsId`
+    FOREIGN KEY (`GoodsId`) REFERENCES `Goods` (`Id`)
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

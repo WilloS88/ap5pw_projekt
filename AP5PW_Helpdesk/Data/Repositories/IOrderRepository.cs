@@ -6,7 +6,7 @@ namespace AP5PW_Helpdesk.Data.Repositories
 {
 	public interface IOrderRepository
 	{
-		Task<List<Order>> GetAllAsync(); // se zahrnutými Company, User a Items
+		Task<List<Order>> GetAllAsync();
 		Task<Order?> GetByIdWithItemsAsync(int id);
 
 		Task AddAsync(Order order, IEnumerable<OrderedGoods> items);

@@ -23,6 +23,10 @@ namespace AP5PW_Helpdesk.ViewModels.Order
 		[Display(Name = "Nákupní objednávka")]
 		public bool IsBuyOrder			{ get; set; } = true;
 
+		[Display(Name = "Sklad"), Required(ErrorMessage = "Vyberte sklad.")]
+		public int WarehouseId { get; set; }
+		public string WarehouseName { get; set; } = "";
+
 		[MinLength(1, ErrorMessage = "Objednávka musí mít alespoň jednu položku.")]
 		public List<OrderItemVM> Items	{ get; set; } = [];
 	}

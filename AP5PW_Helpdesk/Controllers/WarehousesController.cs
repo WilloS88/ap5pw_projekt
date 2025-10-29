@@ -48,18 +48,33 @@ namespace AP5PW_Helpdesk.Controllers
 		// GET: /Warehouses/Details/5
 		public async Task<IActionResult> Details(int id)
 		{
-			Warehouse? entity = await _repo.GetByIdAsync(id);
+			var entity = await _db.Warehouses
+				.AsNoTracking()
+				.Include(w => w.Company)
+				.Include(w => w.WarehousesGoods)
+					.ThenInclude(wg => wg.Goods)
+				.FirstOrDefaultAsync(w => w.Id == id);
+
 			if (entity == null) return NotFound();
 
-			WarehouseVM vm = new()
+			var vm = new WarehouseDetailVM
 			{
-				Id			= entity.Id,
-				Name		= entity.Name,
-				CompanyId	= entity.CompanyId,
-				CompanyName = entity.Company?.Name ?? ""
+				Id = entity.Id,
+				Name = entity.Name,
+				CompanyId = entity.CompanyId,
+				CompanyName = entity.Company?.Name ?? "",
+				Stock = entity.WarehousesGoods
+					.OrderBy(wg => wg.Goods.Name)
+					.Select(wg => new WarehouseStockItemVM
+					{
+						GoodId = wg.GoodsId,
+						GoodName = wg.Goods.Name,
+						Quantity = wg.Quantity
+					}).ToList()
 			};
 			return View(vm);
 		}
+
 
 		// GET: /Warehouses/Create
 		public async Task<IActionResult> Create()
