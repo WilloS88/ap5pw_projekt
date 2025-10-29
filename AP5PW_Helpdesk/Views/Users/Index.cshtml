@@ -40,8 +40,8 @@
                             <td>@u.LastName</td>
                             <td>@u.CompanyName</td>
                             <td>@u.RoleName</td>
-                            <td class="text-end">
-                                <div class="d-flex justify-content-end flex-wrap gap-2">
+                            <td class="text-end align-middle">
+                                <div class="d-flex justify-content-end gap-2">
                                     <button type="button"
                                             class="btn btn-sm btn-gradient-gray js-open-modal"
                                             data-url="@Url.Action("Details", "Users", new { id = u.Id })"
@@ -90,6 +90,57 @@
 </div>
 
 @section Scripts {
+    <style>
+        /* === Kompaktnější tabulka === */
+        .table > :not(caption) > * > * {
+            padding: 0.4rem 0.6rem; /* menší výška řádku */
+        }
+
+        /* Hover efekt na řádek */
+        .table-hover tbody tr:hover {
+            background: rgba(102, 16, 242, 0.07);
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        /* Gradient tlačítka */
+        .btn-gradient-blue {
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+            border: none;
+            color: #fff !important;
+            font-weight: 600;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .btn-gradient-gray {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            border: none;
+            color: #fff !important;
+            font-weight: 600;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .btn-gradient-red {
+            background: linear-gradient(135deg, #dc3545, #ff4f70);
+            border: none;
+            color: #fff !important;
+            font-weight: 600;
+            transition: all 0.25s ease-in-out;
+        }
+
+            .btn-gradient-blue:hover,
+            .btn-gradient-gray:hover,
+            .btn-gradient-red:hover {
+                transform: translateY(-1px) scale(1.05);
+                box-shadow: 0 0 12px rgba(102,16,242,0.4);
+                filter: brightness(1.15);
+            }
+
+        /* Zarovnání tlačítek vpravo */
+        td.text-end .btn {
+            min-width: 75px;
+        }
+    </style>
+
     <script>
         (function () {
             const modalEl = document.getElementById('appModal');
