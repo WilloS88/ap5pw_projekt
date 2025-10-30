@@ -18,24 +18,24 @@ namespace AP5PW_Helpdesk.Controllers
 
 		public OrdersController(IOrderRepository repo, AppDbContext db)
 		{
-			_repo = repo;
-			_db = db;
+			_repo	= repo;
+			_db		= db;
 		}
 		
 		private async Task PopulateSelectsAsync(int? companyId = null, int? userId = null, int? warehouseId = null)
 		{
-			var companies = await _db.Companies.AsNoTracking().OrderBy(c => c.Name).ToListAsync();
-			var users = await _db.Users.AsNoTracking().OrderBy(u => u.UserName).ToListAsync();
-			var goods = await _db.Goods.AsNoTracking().OrderBy(g => g.Name).ToListAsync();
+			List<Company>? companies	= await _db.Companies.AsNoTracking().OrderBy(c => c.Name).ToListAsync();
+			List<User>? users			= await _db.Users.AsNoTracking().OrderBy(u => u.UserName).ToListAsync();
+			List<Good>? goods			= await _db.Goods.AsNoTracking().OrderBy(g => g.Name).ToListAsync();
 
-			var warehouses = companyId.HasValue
+			List<Warehouse>? warehouses = companyId.HasValue
 				? await _db.Warehouses.AsNoTracking().Where(w => w.CompanyId == companyId).OrderBy(w => w.Name).ToListAsync()
-				: new List<Warehouse>();
+				: [];
 
-			ViewBag.CompanyList = new SelectList(companies, "Id", "Name", companyId);
-			ViewBag.UserList = new SelectList(users, "Id", "UserName", userId);
-			ViewBag.GoodList = new SelectList(goods, "Id", "Name");
-			ViewBag.WarehouseList = new SelectList(warehouses, "Id", "Name", warehouseId);
+			ViewBag.CompanyList		= new SelectList(companies, "Id", "Name", companyId);
+			ViewBag.UserList		= new SelectList(users, "Id", "UserName", userId);
+			ViewBag.GoodList		= new SelectList(goods, "Id", "Name");
+			ViewBag.WarehouseList	= new SelectList(warehouses, "Id", "Name", warehouseId);
 		}
 
 		// AJAX: warehouses for company
@@ -51,24 +51,25 @@ namespace AP5PW_Helpdesk.Controllers
 			return Json(data);
 		}
 
+
 		// GET: /Orders
 		public async Task<IActionResult> Index()
 		{
-			var list = await _repo.GetAllAsync();
-			var vm = list.Select(o => new OrderVM
+			List<Order> list = await _repo.GetAllAsync();
+			List<OrderVM>? vm = [ ..list.Select(o => new OrderVM
 			{
-				Id = o.Id,
-				CompanyId = o.CompanyId,
-				CompanyName = o.Company?.Name ?? "",
-				UserId = o.UserId,
-				UserName = o.User?.UserName ?? "",
-				WarehouseId = o.WarehouseId,
-				WarehouseName = o.Warehouse?.Name ?? "",
-				ExpeditionDate = o.ExpeditionDate,
-				IsBuyOrder = o.IsBuyOrder,
-				ItemsCount = o.OrderedGoods?.Count ?? 0,
-				TotalPrice = null
-			}).ToList();
+				Id				= o.Id,
+				CompanyId		= o.CompanyId,
+				CompanyName		= o.Company?.Name ?? "",
+				UserId			= o.UserId,
+				UserName		= o.User?.UserName ?? "",
+				WarehouseId		= o.WarehouseId,
+				WarehouseName	= o.Warehouse?.Name ?? "",
+				ExpeditionDate	= o.ExpeditionDate,
+				IsBuyOrder		= o.IsBuyOrder,
+				ItemsCount		= o.OrderedGoods?.Count ?? 0,
+				TotalPrice		= null
+			})];
 
 			return View(vm);
 		}
@@ -96,7 +97,6 @@ namespace AP5PW_Helpdesk.Controllers
 						GoodId		= i.GoodId,
 						GoodName	= i.Good!.Name,
 						Quantity	= i.Quantity
-						// UnitPrice = i.UnitPrice
 					})
 				]
 			};
@@ -117,7 +117,7 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Create(OrderEditVM vm)
 		{
 			if (vm.Items == null || vm.Items.Count == 0)
-				ModelState.AddModelError(nameof(vm.Items), "Objednávka musí mít alespoň jednu položku.");
+				ModelState.AddModelError(nameof(vm.Items), "Order needs to have atleast one product.");
 
 			// Warehouse must belong to company
 			if (vm.CompanyId > 0 && vm.WarehouseId > 0)
@@ -198,7 +198,7 @@ namespace AP5PW_Helpdesk.Controllers
 			if (vm.CompanyId > 0 && vm.WarehouseId > 0)
 			{
 				bool ok = await _db.Warehouses.AnyAsync(w => w.Id == vm.WarehouseId && w.CompanyId == vm.CompanyId);
-				if (!ok) ModelState.AddModelError(nameof(vm.WarehouseId), "Zvoleny sklad nepatri do vybrane firmy.");
+				if (!ok) ModelState.AddModelError(nameof(vm.WarehouseId), "Selected warehouse does not belog to selected company.");
 			}
 
 			if (!ModelState.IsValid)
@@ -207,22 +207,22 @@ namespace AP5PW_Helpdesk.Controllers
 				return View(vm);
 			}
 
-			var order = new Order
+			Order? order = new()
 			{
-				Id = vm.Id,
-				CompanyId = vm.CompanyId,
-				UserId = vm.UserId,
-				ExpeditionDate = vm.ExpeditionDate,
-				IsBuyOrder = vm.IsBuyOrder,
-				WarehouseId = vm.WarehouseId
+				Id				= vm.Id,
+				CompanyId		= vm.CompanyId,
+				UserId			= vm.UserId,
+				ExpeditionDate	= vm.ExpeditionDate,
+				IsBuyOrder		= vm.IsBuyOrder,
+				WarehouseId		= vm.WarehouseId
 			};
 
-			var items = vm.Items!.Select(i => new OrderedGoods
+			List<OrderedGoods> items = [ ..vm.Items!.Select(i => new OrderedGoods
 			{
-				OrderId = vm.Id,
-				GoodId = i.GoodId,
-				Quantity = i.Quantity
-			}).ToList();
+				OrderId		= vm.Id,
+				GoodId		= i.GoodId,
+				Quantity	= i.Quantity
+			})];
 
 			try
 			{

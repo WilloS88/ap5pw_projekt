@@ -1,4 +1,8 @@
 using AP5PW_Helpdesk.Data;
+using AP5PW_Helpdesk.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +15,6 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     var serverVersion = ServerVersion.AutoDetect(cs);
     opt.UseMySql(cs, serverVersion);
 });
-
-builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<
     AP5PW_Helpdesk.Data.Repositories.IUserRepository,
@@ -30,6 +32,33 @@ builder.Services.AddScoped<
 	AP5PW_Helpdesk.Data.Repositories.IOrderRepository,
 	AP5PW_Helpdesk.Data.Repositories.OrderRepository>();
 
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+
+// Cookie auth
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+	.AddCookie(options =>
+	{
+		options.LoginPath = "/Auth/Login";
+		options.AccessDeniedPath = "/Auth/AccessDenied";
+	});
+
+// Role-based policy
+builder.Services.AddAuthorization(options =>
+{
+	// Všechno vyžaduje pøihlášení, pokud neuvedeš [AllowAnonymous]
+	options.FallbackPolicy = new AuthorizationPolicyBuilder()
+		.RequireAuthenticatedUser()
+		.Build();
+
+	// Jen admin
+	options.AddPolicy("RequireAdmin", p =>
+		p.RequireRole("admin"));
+
+	// Admin nebo moderator
+	options.AddPolicy("RequireAdminOrModerator", p =>
+		p.RequireRole("admin", "moderator"));
+});
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -42,7 +71,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization(); 
 
 app.MapStaticAssets();
 

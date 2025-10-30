@@ -18,7 +18,10 @@
     </dl>
 
     <div class="mt-4 d-flex justify-content-end gap-2">
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gradient-blue">Edit</a>
+        @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gradient-blue">Edit</a>
+        }
         <a asp-action="Index" class="btn btn-gradient-gray">Back</a>
     </div>
 </div>

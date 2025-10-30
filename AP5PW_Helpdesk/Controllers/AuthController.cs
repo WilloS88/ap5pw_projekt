@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
+﻿using AP5PW_Helpdesk.Data;
+using AP5PW_Helpdesk.ViewModels.Auth;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using AP5PW_Helpdesk.Data;
-using AP5PW_Helpdesk.ViewModels.Auth;
 
 namespace AP5PW_Helpdesk.Controllers
 {
@@ -17,17 +18,17 @@ namespace AP5PW_Helpdesk.Controllers
 
 		public AuthController(AppDbContext db, IPasswordHasher<AP5PW_Helpdesk.Entities.User> hasher)
 		{
-			_db = db;
-			_hasher = hasher;
+			_db			= db;
+			_hasher		= hasher;
 		}
 
-		// GET /Auth/Login  -> jen zobrazi formular
+		// GET /Auth/Login
 		[AllowAnonymous]
 		[HttpGet]
 		public IActionResult Login(string? returnUrl = null)
 			=> View(new LoginVM { ReturnUrl = returnUrl });
 
-		// POST /Auth/Login -> overi, vytvori cookie
+		// POST /Auth/Login
 		[AllowAnonymous]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -35,7 +36,7 @@ namespace AP5PW_Helpdesk.Controllers
 		{
 			if (!ModelState.IsValid) return View(vm);
 
-			var user = await _db.Users
+			Entities.User? user = await _db.Users
 				.Include(u => u.Role)
 				.Include(u => u.Company)
 				.FirstOrDefaultAsync(u => u.UserName == vm.UserName);
@@ -51,7 +52,7 @@ namespace AP5PW_Helpdesk.Controllers
 			// 1) preferuj hash
 			if (!string.IsNullOrEmpty(user.PasswordHash))
 			{
-				var res = _hasher.VerifyHashedPassword(user, user.PasswordHash, vm.Password);
+				PasswordVerificationResult res = _hasher.VerifyHashedPassword(user, user.PasswordHash, vm.Password);
 				if (res == PasswordVerificationResult.Success || res == PasswordVerificationResult.SuccessRehashNeeded)
 				{
 					ok = true;
@@ -68,7 +69,6 @@ namespace AP5PW_Helpdesk.Controllers
 			{
 				user.PasswordHash = _hasher.HashPassword(user, vm.Password);
 
-				// neprepisuj plaintext na null, at DB s NOT NULL neselhava
 				_db.Entry(user).Property(u => u.Password).IsModified = false;
 
 				await _db.SaveChangesAsync();
@@ -84,24 +84,24 @@ namespace AP5PW_Helpdesk.Controllers
 
 			var roleValue = (user.Role?.Name ?? "user").Trim().ToLowerInvariant();
 
-			var claims = new List<Claim>
-			{
-				new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-				new Claim(ClaimTypes.Name, user.UserName),
-				new Claim(ClaimTypes.Role, roleValue),
-			};
+			List<Claim> claims =
+			[
+				new(ClaimTypes.NameIdentifier, user.Id.ToString()),
+				new(ClaimTypes.Name, user.UserName),
+				new(ClaimTypes.Role, roleValue),
+			];
 
-			var identity = new ClaimsIdentity(
+			ClaimsIdentity identity = new(
 				claims,
 				CookieAuthenticationDefaults.AuthenticationScheme,
 				ClaimTypes.Name,
-				ClaimTypes.Role               // explicitně řekneme, co je role claim
+				ClaimTypes.Role              
 			);
 
 			if (user.Company != null)
 				claims.Add(new Claim("companyName", user.Company.Name));
 
-			var id = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+			ClaimsIdentity? id = new(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
 			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,new ClaimsPrincipal(identity));
 
@@ -110,6 +110,68 @@ namespace AP5PW_Helpdesk.Controllers
 
 			return RedirectToAction("Index", "Home");
 		}
+
+		[AllowAnonymous]
+		[HttpGet]
+		public async Task<IActionResult> Register()
+		{
+			RegisterVM? vm = new()
+			{
+				CompanyList = await _db.Companies
+					.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name })
+					.ToListAsync()
+			};
+			return View(vm);
+		}
+
+		[AllowAnonymous]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Register(RegisterVM vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				vm.CompanyList = await _db.Companies
+					.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name })
+					.ToListAsync();
+				return View(vm);
+			}
+
+			bool exists = await _db.Users.AnyAsync(u => u.UserName == vm.UserName);
+			if (exists)
+			{
+				ModelState.AddModelError(nameof(vm.UserName), "This username is already taken.");
+				vm.CompanyList = await _db.Companies
+					.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name })
+					.ToListAsync();
+				return View(vm);
+			}
+
+			Entities.Role? defaultRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "user");
+			if (defaultRole == null)
+			{
+				ModelState.AddModelError(string.Empty, "Default role 'user' not found in database.");
+				return View(vm);
+			}
+
+			Entities.User? user = new()
+			{
+				UserName	= vm.UserName,
+				LastName	= vm.LastName ?? "",
+				CompanyId	= vm.CompanyId,
+				RoleId		= defaultRole.Id
+			};
+
+			// Hash
+			user.PasswordHash = _hasher.HashPassword(user, vm.Password);
+
+			_db.Users.Add(user);
+			await _db.SaveChangesAsync();
+
+			TempData["Success"] = "Registration successful! You can now sign in.";
+			return RedirectToAction("Login");
+		}
+
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]

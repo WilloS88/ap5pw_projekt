@@ -1,11 +1,12 @@
 ﻿@model AP5PW_Helpdesk.ViewModels.WarehouseDetailVM
+
 @{
     ViewData["Title"] = "Warehouse details";
 }
+
 <div class="card shadow-sm">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0">@Model.Name</h5>
-        <a asp-action="Index" class="btn btn-gradient-gray btn-sm">Back</a>
     </div>
     <div class="card-body">
         <dl class="row mb-0">
@@ -42,6 +43,10 @@
         }
     </div>
     <div class="card-footer bg-transparent border-0 text-end">
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gradient-blue btn-sm">Edit</a>
+        @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gradient-blue btn-sm">Edit</a>
+        }
+        <a asp-action="Index" class="btn btn-gradient-gray btn-sm">Back</a>
     </div>
 </div>

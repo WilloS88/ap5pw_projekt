@@ -6,7 +6,10 @@
 <div class="card shadow-sm">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0">@ViewData["Title"]</h5>
-        <a asp-action="Create" class="btn btn-gradient-blue btn-sm">+ Create warehouse</a>
+        @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+        {
+            <a asp-action="Create" class="btn btn-gradient-blue btn-sm">+ Create warehouse</a>
+        }
     </div>
 
     <div class="table-responsive d-none d-md-block">
@@ -35,13 +38,16 @@
                             <td class="text-end align-middle">
                                 <div class="d-flex justify-content-end gap-2 flex-nowrap">
                                     <a asp-action="Details" asp-route-id="@w.Id" class="btn btn-sm btn-gradient-gray">Details</a>
-                                    <a asp-action="Edit" asp-route-id="@w.Id" class="btn btn-sm btn-gradient-blue">Edit</a>
-                                    <form asp-action="Delete" asp-route-id="@w.Id" method="post" class="d-inline">
-                                        <button type="submit" class="btn btn-sm btn-gradient-red"
-                                                onclick="return confirm('Delete this warehouse?');">
-                                            Delete
-                                        </button>
-                                    </form>
+                                    @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@w.Id" class="btn btn-sm btn-gradient-blue">Edit</a>
+                                        <form asp-action="Delete" asp-route-id="@w.Id" method="post" class="d-inline">
+                                            <button type="submit" class="btn btn-sm btn-gradient-red"
+                                                    onclick="return confirm('Delete this warehouse?');">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    }
                                 </div>
                             </td>
                         </tr>
@@ -69,6 +75,8 @@
                         <p class="small text-muted mb-1">@w.CompanyName</p>
                         <div class="d-flex gap-2 mt-2">
                             <a asp-action="Details" asp-route-id="@w.Id" class="btn btn-sm btn-gradient-gray flex-fill">Details</a>
+                            @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+                            {
                             <a asp-action="Edit" asp-route-id="@w.Id" class="btn btn-sm btn-gradient-blue flex-fill">Edit</a>
                             <form asp-action="Delete" asp-route-id="@w.Id" method="post" class="flex-fill">
                                 <button type="submit" class="btn btn-sm btn-gradient-red w-100"
@@ -76,6 +84,7 @@
                                     Delete
                                 </button>
                             </form>
+                            }
                         </div>
                     </div>
                 }

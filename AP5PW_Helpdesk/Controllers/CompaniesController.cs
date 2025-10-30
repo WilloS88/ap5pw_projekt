@@ -15,18 +15,17 @@ namespace AP5PW_Helpdesk.Controllers
 		// GET: /Companies
 		public async Task<IActionResult> Index()
 		{
-			var vm = (await _repo.GetAllAsync())
+			List<CompanyVM>? vm = [ ..(await _repo.GetAllAsync())
 				.Select(c => new CompanyVM
 				{
-					Id = c.Id,
-					Name = c.Name,
-					Street = c.Street,
-					City = c.City,
-					Postcode = c.Postcode
-				})
-				.ToList();
+					Id			= c.Id,
+					Name		= c.Name,
+					Street		= c.Street,
+					City		= c.City,
+					Postcode	= c.Postcode
+				})];
 
-			return View(vm); // Views/Companies/Index.cshtml (model: IEnumerable<CompanyVM>)
+			return View(vm);
 		}
 
 		// GET: /Companies/Details/5
@@ -35,7 +34,7 @@ namespace AP5PW_Helpdesk.Controllers
 			var entity = await _repo.GetByIdAsync(id);
 			if (entity == null) return NotFound();
 
-			var vm = new CompanyVM
+			CompanyVM? vm = new()
 			{
 				Id			= entity.Id,
 				Name		= entity.Name,
@@ -43,7 +42,7 @@ namespace AP5PW_Helpdesk.Controllers
 				Street		= entity.Street,
 				Postcode	= entity.Postcode
 			};
-			return View(vm); // Views/Companies/Details.cshtml
+			return View(vm);
 		}
 
 		// GET: /Companies/Create
@@ -57,11 +56,11 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (await _repo.NameExistsAsync(vm.Name))
 			{
-				ModelState.AddModelError(nameof(vm.Name), "Firma s tímto názvem už existuje.");
+				ModelState.AddModelError(nameof(vm.Name), "Company with this name already exists.");
 				return View(vm);
 			}
 
-			var entity = new Company
+			Company? entity = new()
 			{
 				Name		= vm.Name,
 				City		= vm.City,
@@ -76,10 +75,10 @@ namespace AP5PW_Helpdesk.Controllers
 		// GET: /Companies/Edit/5
 		public async Task<IActionResult> Edit(int id)
 		{
-			var entity = await _repo.GetByIdAsync(id);
+			Company? entity = await _repo.GetByIdAsync(id);
 			if (entity == null) return NotFound();
 
-			var vm = new CompanyVM
+			CompanyVM? vm = new()
 			{
 				Id			= entity.Id,
 				Name		= entity.Name,
@@ -87,7 +86,7 @@ namespace AP5PW_Helpdesk.Controllers
 				Street		= entity.Street,
 				Postcode	= entity.Postcode
 			};
-			return View(vm); // Views/Companies/Edit.cshtml
+			return View(vm);
 		}
 
 		// POST: /Companies/Edit/5
@@ -99,11 +98,11 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (await _repo.NameExistsAsync(vm.Name, excludeId: id))
 			{
-				ModelState.AddModelError(nameof(vm.Name), "Firma s tímto názvem už existuje.");
+				ModelState.AddModelError(nameof(vm.Name), "Company with this name already exists..");
 				return View(vm);
 			}
 
-			var entity = new Company
+			Company? entity = new()
 			{
 				Id			= vm.Id,
 				Name		= vm.Name,

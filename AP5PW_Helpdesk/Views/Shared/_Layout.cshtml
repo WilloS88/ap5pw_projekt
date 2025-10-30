@@ -1,4 +1,6 @@
-﻿@{
+﻿@using System.Security.Claims
+
+@{
     Layout = null;
     var title = ViewData["Title"] as string ?? "AP5PW_Helpdesk";
 }
@@ -285,9 +287,12 @@
         <div class="brand">
             <h3 class="fw-bold">Helpdesk</h3>
         </div>
-        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Open menu">
-            <span class="material-symbols-rounded">menu</span>
-        </button>
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Open menu">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+        }
     </div>
 
     <!-- Sidebar (desktop) -->
@@ -297,40 +302,69 @@
                 <h3 class="fw-bold">Helpdesk</h3>
             </div>
             <ul class="nav flex-column">
-                <li>
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" href="https://localhost:7227/">
-                        <span class="material-symbols-rounded">home</span> Home
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Users" ? "active" : "")" href="https://localhost:7227/Users">
-                        <span class="material-symbols-rounded">group</span> Users
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Orders" ? "active" : "")" href="https://localhost:7227/Orders">
-                        <span class="material-symbols-rounded">shopping_cart</span> Orders
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Goods" ? "active" : "")" href="https://localhost:7227/Goods">
-                        <span class="material-symbols-rounded">inventory_2</span> Goods
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Companies" ? "active" : "")" href="https://localhost:7227/Companies">
-                        <span class="material-symbols-rounded">apartment</span> Companies
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Warehouses" ? "active" : "")" href="https://localhost:7227/Warehouses">
-                        <span class="material-symbols-rounded">warehouse</span> Warehouses
-                    </a>
-                </li>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <li>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" href="https://localhost:7227/">
+                            <span class="material-symbols-rounded">home</span> Home
+                        </a>
+                    </li>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Users" ? "active" : "")" href="https://localhost:7227/Users">
+                                <span class="material-symbols-rounded">group</span> Users
+                            </a>
+                        </li>
+                    }
+                    <li>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Orders" ? "active" : "")" href="https://localhost:7227/Orders">
+                            <span class="material-symbols-rounded">shopping_cart</span> Orders
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Goods" ? "active" : "")" href="https://localhost:7227/Goods">
+                            <span class="material-symbols-rounded">inventory_2</span> Goods
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Companies" ? "active" : "")" href="https://localhost:7227/Companies">
+                            <span class="material-symbols-rounded">apartment</span> Companies
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Warehouses" ? "active" : "")" href="https://localhost:7227/Warehouses">
+                            <span class="material-symbols-rounded">warehouse</span> Warehouses
+                        </a>
+                    </li>
+                }
             </ul>
         </div>
-        <div class="sidebar-footer">
-            © @DateTime.Now.Year<br />AP5PW_Helpdesk
+        <div>
+            <div class="d-flex flex-column ms-4 gap-3 mb-3 ">
+
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? "user";
+                    var companyName = User.Claims.FirstOrDefault(c => c.Type == "companyName")?.Value;
+
+                    <div class="nav-item d-flex align-items-center me-3">
+                        <span class="text-muted small">
+                            @User.Identity.Name (@role)
+                        </span>
+                    </div>
+
+                    <div class="nav-item">
+                        <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <button class="btn btn-link nav-link p-0" type="submit">Sign out</button>
+                        </form>
+                    </div>
+                }
+            </div>
+            <div class="sidebar-footer">
+                © @DateTime.Now.Year<br />AP5PW_Helpdesk
+            </div>
         </div>
     </nav>
 
@@ -342,13 +376,52 @@
         </div>
         <div class="offcanvas-body">
             <ul class="nav flex-column">
-                <li><a class="nav-link text-white" href="https://localhost:7227/">Home</a></li>
-                <li><a class="nav-link text-white" href="https://localhost:7227/Users">Users</a></li>
-                <li><a class="nav-link text-white" href="https://localhost:7227/Orders">Orders</a></li>
-                <li><a class="nav-link text-white" href="https://localhost:7227/Goods">Goods</a></li>
-                <li><a class="nav-link text-white" href="https://localhost:7227/Companies">Companies</a></li>
-                <li><a class="nav-link text-white" href="https://localhost:7227/Warehouses">Warehouses</a></li>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <li><a class="nav-link text-white" href="https://localhost:7227/">Home</a></li>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li><a class="nav-link text-white" href="https://localhost:7227/Users">Users</a></li>
+                    }
+                    <li><a class="nav-link text-white" href="https://localhost:7227/Orders">Orders</a></li>
+                    <li><a class="nav-link text-white" href="https://localhost:7227/Goods">Goods</a></li>
+                    <li><a class="nav-link text-white" href="https://localhost:7227/Companies">Companies</a></li>
+                    <li><a class="nav-link text-white" href="https://localhost:7227/Warehouses">Warehouses</a></li>
+                }
             </ul>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? "user";
+                var companyName = User.Claims.FirstOrDefault(c => c.Type == "companyName")?.Value;
+                <div class="d-flex flex-column ms-4 gap-3 mt-5">
+                    <li class="nav-item d-flex align-items-center me-3">
+                        <span class="text-muted small">
+                            @User.Identity.Name (@role)
+                            @if (!string.IsNullOrWhiteSpace(companyName))
+                            {
+                                @: – @companyName
+                            }
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <button class="btn btn-link nav-link p-0" type="submit">Sign out</button>
+                        </form>
+                    </li>
+                </div>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link"
+                       asp-controller="Auth"
+                       asp-action="Login"
+                       asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString)">
+                        Sign in
+                    </a>
+                </li>
+            }
             <div class="mt-4 text-center small opacity-75">
                 © @DateTime.Now.Year – AP5PW_Helpdesk
             </div>

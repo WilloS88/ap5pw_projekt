@@ -2,12 +2,12 @@
 {
 	public class Warehouse
 	{
-		public int Id { get; set; }
-		public string Name { get; set; } = "";
+		public int Id				{ get; set; }
+		public string Name			{ get; set; } = "";
 
-		public int CompanyId { get; set; }
-		public Company Company { get; set; } = null!;
+		public int CompanyId		{ get; set; }
+		public Company Company		{ get; set; } = null!;
 
-		public ICollection<WarehouseGood> WarehousesGoods { get; set; } = [];
+		public ICollection<WarehouseGood> WarehousesGoods	{ get; set; } = [];
 	}
 }

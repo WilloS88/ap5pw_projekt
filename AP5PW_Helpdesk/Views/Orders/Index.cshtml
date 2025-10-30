@@ -22,7 +22,6 @@
             <table class="table table-hover align-middle mb-0">
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>Company</th>
                         <th>User</th>
                         <th>Expedition</th>
@@ -34,7 +33,6 @@
                     @foreach (var o in Model)
                     {
                         <tr>
-                            <td>@o.Id</td>
                             <td>@o.CompanyName</td>
                             <td>@o.UserName</td>
                             <td>@(o.ExpeditionDate?.ToString("yyyy-MM-dd"))</td>
@@ -83,7 +81,6 @@
                     <div class="user-card mb-3 p-3 rounded shadow-sm">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <h6 class="fw-bold mb-1">Order #@o.Id</h6>
                                 <p class="mb-1 small text-muted">@o.CompanyName</p>
                                 <p class="mb-1 small">@o.UserName</p>
                                 <span class="badge @(o.IsBuyOrder ? "bg-success" : "bg-warning text-dark")">

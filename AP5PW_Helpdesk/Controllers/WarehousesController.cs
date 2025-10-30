@@ -23,24 +23,21 @@ namespace AP5PW_Helpdesk.Controllers
 		// helper: companies SelectList
 		private async Task PopulateCompaniesAsync(int? selectedId = null)
 		{
-			var companies = await _db.Companies
-									 .AsNoTracking()
-									 .OrderBy(c => c.Name)
-									 .ToListAsync();
-			ViewBag.CompanyList = new SelectList(companies, "Id", "Name", selectedId);
+			List<Company> companies		= await _db.Companies.AsNoTracking().OrderBy(c => c.Name).ToListAsync();
+			ViewBag.CompanyList			= new SelectList(companies, "Id", "Name", selectedId);
 		}
 
 		// GET: /Warehouses
 		public async Task<IActionResult> Index()
 		{
-			List<Warehouse>? list	= await _repo.GetAllAsync();
-			var vm		= list.Select(vm => new WarehouseVM
+			List<Warehouse>? list		= await _repo.GetAllAsync();
+			List<WarehouseVM>? vm		= [.. list.Select(vm => new WarehouseVM
 			{
-				Id			= vm.Id,
-				Name		= vm.Name,
-				CompanyId	= vm.CompanyId,
-				CompanyName = vm.Company != null ? vm.Company.Name : ""
-			}).ToList();
+				Id				= vm.Id,
+				Name			= vm.Name,
+				CompanyId		= vm.CompanyId,
+				CompanyName		= vm.Company != null ? vm.Company.Name : ""
+			})];
 
 			return View(vm);
 		}
@@ -48,7 +45,7 @@ namespace AP5PW_Helpdesk.Controllers
 		// GET: /Warehouses/Details/5
 		public async Task<IActionResult> Details(int id)
 		{
-			var entity = await _db.Warehouses
+			Warehouse? entity = await _db.Warehouses
 				.AsNoTracking()
 				.Include(w => w.Company)
 				.Include(w => w.WarehousesGoods)
@@ -57,20 +54,21 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (entity == null) return NotFound();
 
-			var vm = new WarehouseDetailVM
+			WarehouseDetailVM? vm = new()
 			{
-				Id = entity.Id,
-				Name = entity.Name,
-				CompanyId = entity.CompanyId,
-				CompanyName = entity.Company?.Name ?? "",
-				Stock = entity.WarehousesGoods
+				Id				= entity.Id,
+				Name			= entity.Name,
+				CompanyId		= entity.CompanyId,
+				CompanyName		= entity.Company?.Name ?? "",
+
+				Stock = [ ..entity.WarehousesGoods
 					.OrderBy(wg => wg.Goods.Name)
 					.Select(wg => new WarehouseStockItemVM
 					{
-						GoodId = wg.GoodsId,
-						GoodName = wg.Goods.Name,
-						Quantity = wg.Quantity
-					}).ToList()
+						GoodId		= wg.GoodsId,
+						GoodName	= wg.Goods.Name,
+						Quantity	= wg.Quantity
+					})]
 			};
 			return View(vm);
 		}
@@ -95,12 +93,12 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (await _repo.NameExistsInCompanyAsync(vm.Name, vm.CompanyId))
 			{
-				ModelState.AddModelError(nameof(vm.Name), "Ve vybrané firmě již sklad s tímto názvem existuje.");
+				ModelState.AddModelError(nameof(vm.Name), "This warehouse already exists in this selected company.");
 				await PopulateCompaniesAsync(vm.CompanyId);
 				return View(vm);
 			}
 
-			var entity = new Warehouse
+			Warehouse? entity = new()
 			{
 				Name		= vm.Name,
 				CompanyId	= vm.CompanyId
@@ -116,7 +114,7 @@ namespace AP5PW_Helpdesk.Controllers
 			Warehouse? entity = await _repo.GetByIdAsync(id);
 			if (entity == null) return NotFound();
 
-			var vm = new WarehouseVM
+			WarehouseVM? vm = new()
 			{
 				Id			= entity.Id,
 				Name		= entity.Name,
@@ -140,12 +138,12 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (await _repo.NameExistsInCompanyAsync(vm.Name, vm.CompanyId, excludeId: id))
 			{
-				ModelState.AddModelError(nameof(vm.Name), "Ve vybrané firmě již sklad s tímto názvem existuje.");
+				ModelState.AddModelError(nameof(vm.Name), "This warehouse already exists in this selected company.");
 				await PopulateCompaniesAsync(vm.CompanyId);
 				return View(vm);
 			}
 
-			Warehouse? entity = new Warehouse
+			Warehouse? entity = new()
 			{
 				Id			= vm.Id,
 				Name		= vm.Name,

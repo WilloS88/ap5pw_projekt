@@ -17,14 +17,14 @@ namespace AP5PW_Helpdesk.Controllers
 
         public UsersController(IUserRepository repo, AppDbContext db)
         {
-            _repo = repo;
-            _db = db;
+            _repo	= repo;
+            _db		= db;
         }
 
         // GET: /Users
         public async Task<IActionResult> Index()
         {
-            var vm = await _db.Users
+            List<UserVM>? vm = await _db.Users
                 .AsNoTracking()
                 .Include(u => u.Role)
                 .Include(u => u.Company)
@@ -47,10 +47,10 @@ namespace AP5PW_Helpdesk.Controllers
         // DETAILS
         public async Task<IActionResult> Details(int id)
         {
-            var entita = await _repo.GetByIdAsync(id);
+            User? entita = await _repo.GetByIdAsync(id);
             if (entita == null) return NotFound();
 
-            var vm = new UserVM
+			UserVM? vm = new()
             {
                 Id          = entita.Id,
                 UserName    = entita.UserName,
@@ -65,14 +65,14 @@ namespace AP5PW_Helpdesk.Controllers
 
 		private async Task PopulateRolesAsync(int? selectedId = null)
 		{
-			var roles = await _db.Roles.AsNoTracking().OrderBy(r => r.Name).ToListAsync();
-			ViewBag.RoleList = new SelectList(roles, "Id", "Name", selectedId);
+			List<Role> roles	= await _db.Roles.AsNoTracking().OrderBy(r => r.Name).ToListAsync();
+			ViewBag.RoleList	= new SelectList(roles, "Id", "Name", selectedId);
 		}
 
 		private async Task PopulateCompaniesAsync(int? selectedId = null)
 		{
-			var companies = await _db.Companies.AsNoTracking().OrderBy(c => c.Name).ToListAsync();
-			ViewBag.CompanyList = new SelectList(companies, "Id", "Name", selectedId);
+			List<Company> companies		= await _db.Companies.AsNoTracking().OrderBy(c => c.Name).ToListAsync();
+			ViewBag.CompanyList			= new SelectList(companies, "Id", "Name", selectedId);
 		}
 
 		// GET: /Users/Create
@@ -96,19 +96,19 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (await _repo.UsernameExistsAsync(vm.UserName))
 			{
-				ModelState.AddModelError(nameof(vm.UserName), "Uživatel s tímto přihlašovacím jménem už existuje.");
+				ModelState.AddModelError(nameof(vm.UserName), "User with this login name already exists.");
 				await PopulateRolesAsync(vm.RoleId);
 				await PopulateCompaniesAsync(vm.CompanyId);
 				return View(vm);
 			}
 
-			var user = new User
+			User? user = new()
 			{
 				UserName    = vm.UserName,
 				LastName    = vm.LastName ?? "",
-				Password    = vm.Password!,     // TODO: hash
+				Password    = vm.Password!,     
 				RoleId      = vm.RoleId,
-				CompanyId   = vm.CompanyId ?? 0 // nebo udělej CompanyId v VM povinné (int)
+				CompanyId   = vm.CompanyId ?? 0
 			};
 
 			await _repo.AddAsync(user);
@@ -118,16 +118,16 @@ namespace AP5PW_Helpdesk.Controllers
 		// GET: /Users/Edit/5
 		public async Task<IActionResult> Edit(int id)
 		{
-			var u = await _repo.GetByIdAsync(id);
-			if (u == null) return NotFound();
+			User? entity = await _repo.GetByIdAsync(id);
+			if (entity == null) return NotFound();
 
 			var vm = new UserVM
 			{
-				Id = u.Id,
-				UserName = u.UserName,
-				LastName = u.LastName,
-				RoleId = u.RoleId,
-				CompanyId = u.CompanyId
+				Id			= entity.Id,
+				UserName	= entity.UserName,
+				LastName	= entity.LastName,
+				RoleId		= entity.RoleId,
+				CompanyId	= entity.CompanyId
 			};
 
 			await PopulateRolesAsync(vm.RoleId);
@@ -151,24 +151,24 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (await _repo.UsernameExistsAsync(vm.UserName, excludeId: id))
 			{
-				ModelState.AddModelError(nameof(vm.UserName), "Uživatel s tímto přihlašovacím jménem už existuje.");
+				ModelState.AddModelError(nameof(vm.UserName), "User with this login name already exists.");
 				await PopulateRolesAsync(vm.RoleId);
 				await PopulateCompaniesAsync(vm.CompanyId);
 				return View(vm);
 			}
 
-			var u = await _repo.GetByIdAsync(id);
-			if (u == null) return NotFound();
+			User? entity = await _repo.GetByIdAsync(id);
+			if (entity == null) return NotFound();
 
-			u.UserName = vm.UserName;
-			u.LastName = vm.LastName ?? "";
-			u.RoleId = vm.RoleId;
-			u.CompanyId = vm.CompanyId ?? u.CompanyId; // pokud je nullable; jinak int a [Required]
+			entity.UserName		= vm.UserName;
+			entity.LastName		= vm.LastName ?? "";
+			entity.RoleId		= vm.RoleId;
+			entity.CompanyId	= vm.CompanyId ?? entity.CompanyId;
 
 			if (!string.IsNullOrWhiteSpace(vm.Password))
-				u.Password = vm.Password; // TODO: hash
+				entity.Password = vm.Password; 
 
-			await _repo.UpdateAsync(u);
+			await _repo.UpdateAsync(entity);
 			return RedirectToAction(nameof(Index));
 		}
 

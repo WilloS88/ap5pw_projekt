@@ -24,17 +24,16 @@ namespace AP5PW_Helpdesk.Controllers
 		// GET: /Goods
 		public async Task<IActionResult> Index()
 		{
-			var vm = (await _repo.GetAllAsync())
+			List<GoodVM>? vm = [ ..(await _repo.GetAllAsync())
 				.Select(entity => new GoodVM
 				{
 					Id			= entity.Id,
 					Name		= entity.Name,
 					Price		= entity.Price,
 					ProductNum	= entity.ProductNum
-				})
-				.ToList();
+				})];
 
-			return View(vm); // Views/Goods/Index.cshtml
+			return View(vm);
 		}
 
 		// GET: /Goods/Details/5
@@ -43,14 +42,14 @@ namespace AP5PW_Helpdesk.Controllers
 			var entity = await _repo.GetByIdAsync(id);
 			if (entity == null) return NotFound();
 
-			var vm = new GoodVM
+			GoodVM? vm = new()
 			{
 				Id			= entity!.Id,
 				Name		= entity.Name,
 				Price		= entity.Price,
 				ProductNum	= entity.ProductNum
 			};
-			return View(vm); // Views/Goods/Details.cshtml
+			return View(vm);
 		}
 
 		// GET: /Goods/Create
@@ -66,11 +65,11 @@ namespace AP5PW_Helpdesk.Controllers
 			if (!string.IsNullOrWhiteSpace(vm.ProductNum) &&
 				await _repo.ProductNumExistsAsync(vm.ProductNum))
 			{
-				ModelState.AddModelError(nameof(vm.ProductNum), "Toto katalogové číslo už existuje.");
+				ModelState.AddModelError(nameof(vm.ProductNum), "This product number already exists.");
 				return View(vm);
 			}
 
-			var entity = new Good
+			Good? entity = new()
 			{
 				Name		= vm.Name,
 				Price		= vm.Price,
@@ -84,17 +83,17 @@ namespace AP5PW_Helpdesk.Controllers
 		// GET: /Goods/Edit/5
 		public async Task<IActionResult> Edit(int id)
 		{
-			var entity = await _repo.GetByIdAsync(id);
+			Good? entity = await _repo.GetByIdAsync(id);
 			if (entity == null) return NotFound();
 
-			var vm = new GoodVM
+			GoodVM? vm = new()
 			{
 				Id			= entity!.Id,
 				Name		= entity.Name,
 				Price		= entity.Price,
 				ProductNum	= entity.ProductNum
 			};
-			return View(vm); // Views/Goods/Edit.cshtml
+			return View(vm);
 		}
 
 		// POST: /Goods/Edit/5
@@ -108,11 +107,11 @@ namespace AP5PW_Helpdesk.Controllers
 			if (!string.IsNullOrWhiteSpace(vm.ProductNum) &&
 				await _repo.ProductNumExistsAsync(vm.ProductNum, excludeId: id))
 			{
-				ModelState.AddModelError(nameof(vm.ProductNum), "Toto katalogové číslo už existuje.");
+				ModelState.AddModelError(nameof(vm.ProductNum), "This product number already exists.");
 				return View(vm);
 			}
 
-			var entity = await _repo.GetByIdAsync(id);
+			Good? entity = await _repo.GetByIdAsync(id);
 			if (entity == null) return NotFound();
 
 			entity!.Name		= vm.Name;
