@@ -1,0 +1,21 @@
+﻿@model AP5PW_Helpdesk.ViewModels.Auth.LoginVM
+@{
+    ViewData["Title"] = "Sign in";
+}
+<h2>Sign in</h2>
+<form asp-controller="Auth" asp-action="Login" method="post">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ReturnUrl" />
+    <div class="mb-3">
+        <label asp-for="UserName" class="form-label"></label>
+        <input asp-for="UserName" class="form-control" autocomplete="username" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" autocomplete="current-password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button class="btn btn-primary" type="submit">Sign in</button>
+</form>
