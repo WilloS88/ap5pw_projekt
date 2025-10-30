@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Users";
 }
-<div class="card">
+<div class="card shadow-sm">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0">Users</h5>
         <button type="button"
@@ -13,7 +13,7 @@
         </button>
     </div>
 
-    <div class="table-responsive">
+    <div class="table-responsive d-none d-md-block">
         @if (Model == null || !Model.Any())
         {
             <div class="p-4">
@@ -41,23 +41,22 @@
                             <td>@u.CompanyName</td>
                             <td>@u.RoleName</td>
                             <td class="text-end align-middle">
-                                <div class="d-flex justify-content-end gap-2">
+                                <div class="d-flex justify-content-end gap-2 flex-nowrap">
                                     <button type="button"
                                             class="btn btn-sm btn-gradient-gray js-open-modal"
                                             data-url="@Url.Action("Details", "Users", new { id = u.Id })"
                                             data-title="User details">
                                         Details
                                     </button>
-
                                     <button type="button"
                                             class="btn btn-sm btn-gradient-blue js-open-modal"
                                             data-url="@Url.Action("Edit", "Users", new { id = u.Id })"
                                             data-title="Edit user">
                                         Edit
                                     </button>
-
                                     <form asp-action="Delete" asp-route-id="@u.Id" method="post" class="d-inline">
-                                        <button type="submit" class="btn btn-sm btn-gradient-red"
+                                        <button type="submit"
+                                                class="btn btn-sm btn-gradient-red"
                                                 onclick="return confirm('Delete this user?');">
                                             Delete
                                         </button>
@@ -68,6 +67,55 @@
                     }
                 </tbody>
             </table>
+        }
+    </div>
+
+    <!-- Mobilní verze -->
+    <div class="d-md-none">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="p-4">
+                <div class="alert alert-info mb-0">No users yet. Click “Create user”.</div>
+            </div>
+        }
+        else
+        {
+            <div class="user-cards">
+                @foreach (var u in Model)
+                {
+                    <div class="user-card mb-3 p-3 rounded shadow-sm">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="fw-bold mb-1">@u.UserName</h6>
+                                <p class="mb-1 small text-muted">@u.LastName</p>
+                                <p class="mb-1 small">@u.CompanyName</p>
+                                <span class="badge bg-secondary">@u.RoleName</span>
+                            </div>
+                            <div class="text-end d-flex flex-column gap-2 ms-3">
+                                <button type="button"
+                                        class="btn btn-sm btn-gradient-gray js-open-modal"
+                                        data-url="@Url.Action("Details", "Users", new { id = u.Id })"
+                                        data-title="User details">
+                                    Details
+                                </button>
+                                <button type="button"
+                                        class="btn btn-sm btn-gradient-blue js-open-modal"
+                                        data-url="@Url.Action("Edit", "Users", new { id = u.Id })"
+                                        data-title="Edit user">
+                                    Edit
+                                </button>
+                                <form asp-action="Delete" asp-route-id="@u.Id" method="post" class="d-inline">
+                                    <button type="submit"
+                                            class="btn btn-sm btn-gradient-red"
+                                            onclick="return confirm('Delete this user?');">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         }
     </div>
 </div>
@@ -91,22 +139,48 @@
 
 @section Scripts {
     <style>
-        /* === Kompaktnější tabulka === */
-        .table > :not(caption) > * > * {
-            padding: 0.4rem 0.6rem; /* menší výška řádku */
+        /* === Desktop === */
+        @@media (min-width: 768px) {
+            .table > :not(caption) > * > *
+
+        {
+            padding: 0.35rem 0.5rem; /* ztenčení řádků */
+            vertical-align: middle;
         }
 
-        /* Hover efekt na řádek */
         .table-hover tbody tr:hover {
             background: rgba(102, 16, 242, 0.07);
             transition: background-color 0.2s ease-in-out;
         }
 
-        /* Gradient tlačítka */
+        /* tlačítka vedle sebe */
+        td.text-end .btn {
+            min-width: 80px;
+            font-size: 0.85rem;
+            padding: 0.3rem 0.6rem;
+        }
+
+        td.text-end .d-flex {
+            flex-wrap: nowrap;
+            gap: 0.4rem;
+        }
+
+        }
+
+        /* === Mobilní karty === */
+        .user-card {
+            background: #0f141b;
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+            .user-card .badge {
+                background: linear-gradient(135deg, #0d6efd, #6610f2);
+            }
+
         .btn-gradient-blue {
             background: linear-gradient(135deg, #0d6efd, #6610f2);
             border: none;
-            color: #fff !important;
+            color: #fff;
             font-weight: 600;
             transition: all 0.25s ease-in-out;
         }
@@ -114,7 +188,7 @@
         .btn-gradient-gray {
             background: linear-gradient(135deg, #6c757d, #495057);
             border: none;
-            color: #fff !important;
+            color: #fff;
             font-weight: 600;
             transition: all 0.25s ease-in-out;
         }
@@ -122,7 +196,7 @@
         .btn-gradient-red {
             background: linear-gradient(135deg, #dc3545, #ff4f70);
             border: none;
-            color: #fff !important;
+            color: #fff;
             font-weight: 600;
             transition: all 0.25s ease-in-out;
         }
@@ -134,11 +208,6 @@
                 box-shadow: 0 0 12px rgba(102,16,242,0.4);
                 filter: brightness(1.15);
             }
-
-        /* Zarovnání tlačítek vpravo */
-        td.text-end .btn {
-            min-width: 75px;
-        }
     </style>
 
     <script>
