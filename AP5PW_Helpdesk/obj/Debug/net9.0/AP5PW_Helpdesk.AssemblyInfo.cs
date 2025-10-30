@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AP5PW_Helpdesk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38088cbb79c55b4bb0a2e326a3ba4f9b3257d4ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b219cbd94ea0cab3a142c68f7f02d96e57ec420")]
 [assembly: System.Reflection.AssemblyProductAttribute("AP5PW_Helpdesk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AP5PW_Helpdesk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

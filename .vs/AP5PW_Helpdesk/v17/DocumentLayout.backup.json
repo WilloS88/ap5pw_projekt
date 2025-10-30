@@ -3,17 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.306\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -50,57 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.306\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.306\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.306\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.306\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ViewState": "AgIAALYCAAAAAAAAAAAEwMoCAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-10-30T15:03:02.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\User.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:02:34.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAwwDUAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:59:39.087Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\UsersController.cs",
               "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\UsersController.cs",
               "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAuwEcAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAYwHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T12:31:10.992Z"
+              "WhenOpened": "2025-10-30T12:31:10.992Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Shared\\_Layout.cshtml",
@@ -108,11 +59,12 @@
               "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAACUBAAAAAAAAAAAAACgBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-30T14:13:20.989Z"
+              "WhenOpened": "2025-10-30T14:13:20.989Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Details.cshtml",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Goods\\Details.cshtml",
@@ -120,11 +72,12 @@
               "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Goods\\Details.cshtml",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAACgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-30T12:49:46.459Z"
+              "WhenOpened": "2025-10-30T12:49:46.459Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Index.cshtml",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Goods\\Index.cshtml",
@@ -132,11 +85,12 @@
               "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Goods\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-30T12:49:40.201Z"
+              "WhenOpened": "2025-10-30T12:49:40.201Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Index.cshtml",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Warehouses\\Index.cshtml",
@@ -144,7 +98,8 @@
               "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Warehouses\\Index.cshtml",
               "ViewState": "AgIAABAAAAAAAAAAAAAAAEcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-30T12:49:04.812Z"
+              "WhenOpened": "2025-10-30T12:49:04.812Z",
+              "EditorCaption": ""
             }
           ]
         },
