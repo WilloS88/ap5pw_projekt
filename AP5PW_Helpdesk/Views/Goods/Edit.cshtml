@@ -2,30 +2,78 @@
 @{
     ViewData["Title"] = "Edit good";
 }
-<h2>@ViewData["Title"]</h2>
 
-<form asp-action="Edit" asp-route-id="@Model.Id" method="post" class="mt-3">
-    <input type="hidden" asp-for="Id" />
-    <div asp-validation-summary="All" class="text-danger"></div>
+<div class="card shadow-sm p-4">
+    <h4 class="mb-3 fw-bold">Edit good</h4>
 
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-    <div class="mb-3">
-        <label asp-for="Price" class="form-label"></label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label asp-for="Name" class="form-label fw-semibold"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
 
-    <div class="mb-3">
-        <label asp-for="ProductNum" class="form-label"></label>
-        <input asp-for="ProductNum" class="form-control" />
-        <span asp-validation-for="ProductNum" class="text-danger"></span>
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
-</form>
+            <div class="col-md-3">
+                <label asp-for="Price" class="form-label fw-semibold"></label>
+                <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="Price" class="text-danger small"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="ProductNum" class="form-label fw-semibold"></label>
+                <input asp-for="ProductNum" class="form-control" />
+                <span asp-validation-for="ProductNum" class="text-danger small"></span>
+            </div>
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-gradient-blue">Save changes</button>
+            <a asp-action="Index" class="btn btn-gradient-gray">Back</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <style>
+        .card {
+            background: #0f141b;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: .75rem;
+        }
+
+        .form-control, .form-select {
+            background-color: #121820;
+            color: #e2e8f0;
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+            .form-control:focus {
+                border-color: #6610f2;
+                box-shadow: 0 0 0 .2rem rgba(102,16,242,.25);
+            }
+
+        .btn-gradient-blue {
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn-gradient-gray {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+
+            .btn-gradient-blue:hover, .btn-gradient-gray:hover {
+                transform: translateY(-1px) scale(1.03);
+                filter: brightness(1.1);
+            }
+    </style>
+}

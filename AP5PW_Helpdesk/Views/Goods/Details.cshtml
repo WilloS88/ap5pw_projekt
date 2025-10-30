@@ -2,21 +2,56 @@
 @{
     ViewData["Title"] = "Good details";
 }
-<h2>@ViewData["Title"]</h2>
 
-<dl class="row">
-    <dt class="col-sm-2">Id</dt>
-    <dd class="col-sm-10">@Model.Id</dd>
+<div class="card shadow-sm p-4">
+    <h4 class="mb-4 fw-bold">Good details</h4>
 
-    <dt class="col-sm-2">Username</dt>
-    <dd class="col-sm-10">@Model.Name</dd>
+    <dl class="row mb-0">
+        <dt class="col-sm-3 text-muted">Name</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
 
-    <dt class="col-sm-2">Price</dt>
-    <dd class="col-sm-10">@Model.Price</dd>
+        <dt class="col-sm-3 text-muted">Price</dt>
+        <dd class="col-sm-9">@Model.Price.ToString("C")</dd>
 
-    <dt class="col-sm-2">Product Number</dt>
-    <dd class="col-sm-10">@Model.ProductNum</dd>
-</dl>
+        <dt class="col-sm-3 text-muted">Product number</dt>
+        <dd class="col-sm-9">@Model.ProductNum</dd>
+    </dl>
 
-<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
-<a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+    <div class="mt-4 d-flex justify-content-end gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gradient-blue">Edit</a>
+        <a asp-action="Index" class="btn btn-gradient-gray">Back</a>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        .card {
+            background: #0f141b;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: .75rem;
+        }
+
+        dt {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .btn-gradient-blue {
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn-gradient-gray {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+
+            .btn-gradient-blue:hover, .btn-gradient-gray:hover {
+                transform: translateY(-1px) scale(1.03);
+                filter: brightness(1.1);
+            }
+    </style>
+}

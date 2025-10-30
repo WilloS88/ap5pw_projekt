@@ -1,82 +1,114 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\",
+  "WorkspaceRootPath": "F:\\_CODE\\ap5pw_projekt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\views\\orders\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\orders\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\warehouses\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\warehouses\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\warehouses\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\warehouses\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\warehouses\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\warehouses\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\warehouses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\warehouses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\entities\\orderedgood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\entities\\orderedgood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\entities\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\entities\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\order\\orderitemvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\viewmodels\\order\\orderitemvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\order\\ordereditvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\viewmodels\\order\\ordereditvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\data\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\data\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\warehousevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\warehousevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\viewmodels\\warehousevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\data\\repositories\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\data\\repositories\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\companies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\companies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\controllers\\warehousescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\controllers\\warehousescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\companies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\companies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\data\\repositories\\igoodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\data\\repositories\\igoodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\companies\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\companies\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\order\\ordervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\companies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\companies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\goods\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\goods\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\goods\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\goods\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\goods\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\goods\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\goods\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\goods\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\orders\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\orders\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\data\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\data\\repositories\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\orders\\_orderitemrow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\orders\\_orderitemrow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\order\\orderitemvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\viewmodels\\order\\orderitemvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\order\\ordereditvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\viewmodels\\order\\ordereditvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\order\\ordervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\viewmodels\\order\\ordervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\entities\\warehousegood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\entities\\warehousegood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\viewmodels\\companyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\viewmodels\\companyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\entities\\good.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\entities\\good.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|f:\\_code\\ap5pw_projekt\\ap5pw_helpdesk\\data\\repositories\\igoodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\data\\repositories\\igoodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,258 +118,359 @@
       "DocumentGroups": [
         {
           "DockedHeight": 337,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IOrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\IOrderRepository.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Data\\Repositories\\IOrderRepository.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\IOrderRepository.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Data\\Repositories\\IOrderRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T15:16:38.738Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "CompanyVM.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\CompanyVM.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\CompanyVM.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\CompanyVM.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\CompanyVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T12:32:17.544Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "WarehouseVM.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\WarehouseVM.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\WarehouseVM.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\WarehouseVM.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\WarehouseVM.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAmwBIAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T13:39:11.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "WarehousesController.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\WarehousesController.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\WarehousesController.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\WarehousesController.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\WarehousesController.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAkwEoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T13:36:05.325Z",
+              "DocumentIndex": 0,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Edit.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Warehouses\\Edit.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Edit.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Warehouses\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:45:06.619Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Create.cshtml",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Orders\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Create.cshtml*",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Orders\\Create.cshtml*",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwA8AAAAnAAAAAAAAAA==",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Create.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Warehouses\\Create.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Create.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Warehouses\\Create.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAcwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-28T13:15:37.578Z",
+              "WhenOpened": "2025-10-30T14:44:46.468Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Edit.cshtml",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Orders\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Edit.cshtml",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Orders\\Edit.cshtml",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBYAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Details.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Warehouses\\Details.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Details.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Warehouses\\Details.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAcwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-28T13:15:32.577Z",
+              "WhenOpened": "2025-10-30T14:44:41.166Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\Order.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Entities\\Order.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\Order.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Entities\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T12:33:01.636Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Index.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Warehouses\\Index.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Warehouses\\Index.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Warehouses\\Index.cshtml",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAcwIQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:44:32.757Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "OrderedGood.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\OrderedGood.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Entities\\OrderedGood.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\OrderedGood.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Entities\\OrderedGood.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "Title": "WarehouseVM.cs",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\WarehouseVM.cs",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\WarehouseVM.cs",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\WarehouseVM.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\WarehouseVM.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAswB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:18:49.91Z",
+              "WhenOpened": "2025-10-30T14:41:24.085Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Good.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\Good.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Entities\\Good.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\Good.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Entities\\Good.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:18:44.833Z",
+              "DocumentIndex": 7,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Companies\\Details.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Companies\\Details.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Companies\\Details.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Companies\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:36:36.719Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Warehouse.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\Warehouse.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Entities\\Warehouse.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\Warehouse.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Entities\\Warehouse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:18:39.753Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Companies\\Edit.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Companies\\Edit.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Companies\\Edit.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Companies\\Edit.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAcwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:30:45.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Companies\\Create.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Companies\\Create.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Companies\\Create.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Companies\\Create.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:28:38.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Companies\\Index.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Companies\\Index.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Companies\\Index.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Companies\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAJUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:28:27.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Details.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Goods\\Details.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Details.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Goods\\Details.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAcwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:24:56.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Create.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Goods\\Create.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Create.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Goods\\Create.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAcwE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:24:44.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Edit.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Goods\\Edit.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Edit.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Goods\\Edit.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAcwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T14:17:17.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Details.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Orders\\Details.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Details.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Orders\\Details.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAcwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-29T22:09:29.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "WarehouseGood.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\WarehouseGood.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Entities\\WarehouseGood.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Entities\\WarehouseGood.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Entities\\WarehouseGood.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:18:30.596Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Edit.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Orders\\Edit.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Edit.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Orders\\Edit.cshtml",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAcwIIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-29T22:09:13.6Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABQAAAAAAAAAA==",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\UsersController.cs",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAMwFgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:18:11.73Z",
+              "WhenOpened": "2025-10-28T20:45:32.599Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Index.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Index.cshtml",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Orders\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Index.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Index.cshtml",
               "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Orders\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAcwFQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-10-28T10:12:27.545Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OrderEditVM.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderEditVM.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderEditVM.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderEditVM.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderEditVM.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAAB4AAAAjAAAAAAAAAA==",
+              "DocumentIndex": 17,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\OrdersController.cs",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAMwF0AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:10:16.745Z",
+              "WhenOpened": "2025-10-28T10:03:40.515Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderItemVM.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderItemVM.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderItemVM.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderItemVM.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderItemVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:10:03.429Z",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Index.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Goods\\Index.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Goods\\Index.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Goods\\Index.cshtml",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAcwJkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-29T22:10:46.443Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "OrderVM.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderVM.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderVM.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderVM.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:09:33.473Z",
+              "DocumentIndex": 16,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Create.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Orders\\Create.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\Create.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Orders\\Create.cshtml",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAcwIAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-29T22:09:39.007Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 18,
               "Title": "OrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\OrderRepository.cs",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\OrderRepository.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Data\\Repositories\\OrderRepository.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\OrderRepository.cs",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\OrderRepository.cs",
               "RelativeToolTip": "AP5PW_Helpdesk\\Data\\Repositories\\OrderRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAowIYAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T10:09:02.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IGoodRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\IGoodRepository.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Data\\Repositories\\IGoodRepository.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\IGoodRepository.cs",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Data\\Repositories\\IGoodRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:08:56.114Z",
-              "EditorCaption": ""
+              "DocumentIndex": 20,
+              "Title": "_OrderItemRow.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\_OrderItemRow.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Orders\\_OrderItemRow.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Orders\\_OrderItemRow.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Orders\\_OrderItemRow.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-29T22:09:52.403Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\OrdersController.cs*",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\OrdersController.cs*",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAAwG0AAAADAAAAAAAAAA==",
+              "DocumentIndex": 22,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAANEAAAAAAAAAAAAcwO8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-28T21:08:01.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Users\\Index.cshtml",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Views\\Users\\Index.cshtml",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Views\\Users\\Index.cshtml",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Views\\Users\\Index.cshtml",
+              "ViewState": "AgIAANIAAAAAAAAAAAAswPcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-28T20:54:02.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "OrderEditVM.cs",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderEditVM.cs",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderEditVM.cs",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderEditVM.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderEditVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:03:40.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T10:10:16.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "OrderItemVM.cs",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderItemVM.cs",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderItemVM.cs",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderItemVM.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderItemVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T10:10:03.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "OrderVM.cs",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderVM.cs",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderVM.cs",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\ViewModels\\Order\\OrderVM.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk\\ViewModels\\Order\\OrderVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T10:09:33.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IGoodRepository.cs",
+              "DocumentMoniker": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\IGoodRepository.cs",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Data\\Repositories\\IGoodRepository.cs",
+              "ToolTip": "F:\\_CODE\\ap5pw_projekt\\AP5PW_Helpdesk\\Data\\Repositories\\IGoodRepository.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Data\\Repositories\\IGoodRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T10:08:56.114Z"
             }
           ]
         },

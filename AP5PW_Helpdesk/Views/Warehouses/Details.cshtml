@@ -1,50 +1,47 @@
 ﻿@model AP5PW_Helpdesk.ViewModels.WarehouseDetailVM
 @{
     ViewData["Title"] = "Warehouse details";
-
-	var nonEmpty = (Model.Stock ?? new List<AP5PW_Helpdesk.ViewModels.WarehouseStockItemVM>())
-				   .Where(s => s.Quantity > 0)
-				   .OrderBy(s => s.GoodName)
-				   .ToList();
 }
-<h2>@ViewData["Title"]</h2>
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">@Model.Name</h5>
+        <a asp-action="Index" class="btn btn-gradient-gray btn-sm">Back</a>
+    </div>
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Company</dt>
+            <dd class="col-sm-9">@Model.CompanyName</dd>
+        </dl>
 
-<dl class="row">
-    <dt class="col-sm-2">Id</dt>
-    <dd class="col-sm-10">@Model.Id</dd>
+        <hr />
 
-    <dt class="col-sm-2">Name</dt>
-    <dd class="col-sm-10">@Model.Name</dd>
-
-    <dt class="col-sm-2">Company</dt>
-    <dd class="col-sm-10">@Model.CompanyName</dd>
-</dl>
-
-<h5>Stock</h5>
-@if (nonEmpty.Any())
-{
-	<table class="table table-sm">
-		<thead>
-			<tr>
-				<th>Good</th>
-				<th class="text-end">Quantity</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model.Stock!)
-			{
-				<tr>
-					<td>@item.GoodName</td>
-					<td class="text-end">@item.Quantity</td>
-				</tr>
-			}
-		</tbody>
-	</table>
-}
-else
-{
-	<div class="text-muted">No items in this warehouse.</div>
-}
-
-<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
-<a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+        <h6 class="fw-bold">Stock</h6>
+        @if (Model.Stock == null || !Model.Stock.Any())
+        {
+            <div class="alert alert-info">This warehouse is empty.</div>
+        }
+        else
+        {
+            <table class="table table-sm table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Good</th>
+                        <th class="text-end">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Stock)
+                    {
+                        <tr>
+                            <td>@item.GoodName</td>
+                            <td class="text-end">@item.Quantity</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    <div class="card-footer bg-transparent border-0 text-end">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gradient-blue btn-sm">Edit</a>
+    </div>
+</div>

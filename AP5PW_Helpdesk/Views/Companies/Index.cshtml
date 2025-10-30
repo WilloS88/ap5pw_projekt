@@ -3,51 +3,147 @@
 @{
     ViewData["Title"] = "Companies";
 }
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h2 class="mb-0">@ViewData["Title"]</h2>
-    <a asp-action="Create" class="btn btn-primary">Create company</a>
+
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Companies</h5>
+        <a asp-action="Create" class="btn btn-gradient-blue btn-sm">+ Create company</a>
+    </div>
+
+    <!-- Desktop tabulka -->
+    <div class="table-responsive d-none d-md-block">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="p-4">
+                <div class="alert alert-info mb-0">No companies yet. Click “Create company”.</div>
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Street</th>
+                        <th>City</th>
+                        <th>Postcode</th>
+                        <th class="text-end" style="width:1%;white-space:nowrap;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@c.Name</td>
+                            <td>@c.Street</td>
+                            <td>@c.City</td>
+                            <td>@c.Postcode</td>
+                            <td class="text-end align-middle">
+                                <div class="d-flex justify-content-end gap-2 flex-nowrap">
+                                    <a asp-action="Details" asp-route-id="@c.Id" class="btn btn-sm btn-gradient-gray">Details</a>
+                                    <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-sm btn-gradient-blue">Edit</a>
+                                    <form asp-action="Delete" asp-route-id="@c.Id" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm btn-gradient-red"
+                                                onclick="return confirm('Delete this company?');">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+
+    <!-- Mobilní zobrazení (karty) -->
+    <div class="d-md-none">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="p-4">
+                <div class="alert alert-info mb-0">No companies yet. Click “Create company”.</div>
+            </div>
+        }
+        else
+        {
+            <div class="user-cards">
+                @foreach (var c in Model)
+                {
+                    <div class="user-card mb-3 p-3 rounded shadow-sm">
+                        <h6 class="fw-bold mb-1">@c.Name</h6>
+                        <p class="mb-1 small text-muted">@c.Street</p>
+                        <p class="mb-1 small">@c.City</p>
+                        <span class="badge bg-secondary">@c.Postcode</span>
+                        <div class="d-flex justify-content-end flex-wrap gap-2 mt-3">
+                            <a asp-action="Details" asp-route-id="@c.Id" class="btn btn-sm btn-gradient-gray">Details</a>
+                            <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-sm btn-gradient-blue">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@c.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-gradient-red"
+                                        onclick="return confirm('Delete this company?');">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
 </div>
 
-@if (Model == null || !Model.Any())
-{
-    <div class="alert alert-info">No companies yet. Click "Create company".</div>
-}
-else
-{
-    <table class="table table-striped align-middle">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>City</th>
-                <th>Street</th>
-                <th>Postcode</th>
-                <th style="width:1%;white-space:nowrap;"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var u in Model)
-            {
-                <tr>
-                    <td>@u.Name</td>
-                    <td>@u.City</td>
-                    <td>@u.Street</td>
-                    <td>@u.Postcode</td>
-                    <td class="text-end">
-                        <a asp-action="Details"     asp-route-id="@u.Id"    class="btn btn-sm btn-outline-secondary">Details</a>
-                        <a asp-action="Edit"        asp-route-id="@u.Id"    class="btn btn-sm btn-outline-primary ms-1">Edit</a>
-                        <form asp-action="Delete"   asp-route-id="@u.Id"    method="post" class="d-inline">
-                            <button
-                                type="submit"
-                                onclick="return confirm('Delete this user?');"
-                                class="btn btn-sm btn-outline-danger ms-1"
-                            >
-                                Delete
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+@section Scripts {
+    <style>
+        /* Kompaktní tabulka */
+        .table > :not(caption) > * > * {
+            padding: 0.4rem 0.6rem;
+        }
 
+        .table-hover tbody tr:hover {
+            background: rgba(102, 16, 242, 0.07);
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        /* Gradient buttons */
+        .btn-gradient-blue {
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .btn-gradient-gray {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.25s ease-in-out;
+        }
+
+        .btn-gradient-red {
+            background: linear-gradient(135deg, #dc3545, #ff4f70);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.25s ease-in-out;
+        }
+
+            .btn-gradient-blue:hover,
+            .btn-gradient-gray:hover,
+            .btn-gradient-red:hover {
+                transform: translateY(-1px) scale(1.05);
+                box-shadow: 0 0 12px rgba(102,16,242,0.4);
+                filter: brightness(1.15);
+            }
+
+        .user-card {
+            background: #0f141b;
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+            .user-card .badge {
+                background: linear-gradient(135deg, #0d6efd, #6610f2);
+            }
+    </style>
+}

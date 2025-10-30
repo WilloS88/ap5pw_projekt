@@ -2,47 +2,57 @@
 @{
     ViewData["Title"] = "Order details";
 }
-<h2>@ViewData["Title"]</h2>
 
-<dl class="row">
-    <dt class="col-sm-3">Company</dt>
-    <dd class="col-sm-9">@Model.CompanyName</dd>
+<div class="card shadow-sm p-4">
+    <h5 class="mb-4">@ViewData["Title"]</h5>
 
-    <dt class="col-sm-3">User</dt>
-    <dd class="col-sm-9">@Model.UserName</dd>
+    <dl class="row mb-4">
+        <dt class="col-sm-3 fw-semibold">Company</dt>
+        <dd class="col-sm-9">@Model.CompanyName</dd>
 
-    <dt class="col-sm-3">Expedition</dt>
-    <dd class="col-sm-9">@Model.ExpeditionDate?.ToString("yyyy-MM-dd")</dd>
+        <dt class="col-sm-3 fw-semibold">User</dt>
+        <dd class="col-sm-9">@Model.UserName</dd>
 
-    <dt class="col-sm-3">Type</dt>
-    <dd class="col-sm-9">@((Model.IsBuyOrder) ? "BUY" : "SELL")</dd>
-</dl>
+        <dt class="col-sm-3 fw-semibold">Expedition</dt>
+        <dd class="col-sm-9">@Model.ExpeditionDate?.ToString("yyyy-MM-dd")</dd>
 
-<h4>Items</h4>
-@if (Model.Items == null || !Model.Items.Any())
-{
-    <div class="alert alert-warning">This order has no items.</div>
-}
-else
-{
-    <table class="table table-sm table-striped align-middle">
-        <thead>
-            <tr>
-                <th>Good</th>
-                <th class="text-end">Qty</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var it in Model.Items)
-            {
+        <dt class="col-sm-3 fw-semibold">Type</dt>
+        <dd class="col-sm-9">
+            <span class="badge @(Model.IsBuyOrder ? "bg-success" : "bg-warning text-dark")">
+                @(Model.IsBuyOrder ? "BUY" : "SELL")
+            </span>
+        </dd>
+    </dl>
+
+    <h6 class="fw-bold mb-3">Items</h6>
+
+    @if (Model.Items == null || !Model.Items.Any())
+    {
+        <div class="alert alert-warning">This order has no items.</div>
+    }
+    else
+    {
+        <table class="table table-sm align-middle table-hover mb-4">
+            <thead>
                 <tr>
-                    <td>@it.GoodName</td>
-                    <td class="text-end">@it.Quantity</td>
+                    <th>Good</th>
+                    <th class="text-end">Qty</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
+            </thead>
+            <tbody>
+                @foreach (var it in Model.Items)
+                {
+                    <tr>
+                        <td>@it.GoodName</td>
+                        <td class="text-end">@it.Quantity</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 
-<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
-<a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+    <div class="text-end">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gradient-blue">Edit</a>
+        <a asp-action="Index" class="btn btn-gradient-gray">Back</a>
+    </div>
+</div>

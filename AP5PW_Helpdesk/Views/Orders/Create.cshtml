@@ -2,52 +2,40 @@
 @{
     ViewData["Title"] = "Create order";
 }
-<h2>@ViewData["Title"]</h2>
 
-<form asp-action="Create" method="post" class="mt-3">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h5 class="mb-4">@ViewData["Title"]</h5>
+
+<form asp-action="Create" method="post" id="orderForm">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
     <div class="row g-3">
         <div class="col-md-4">
             <label class="form-label">Company</label>
-            <select asp-for="CompanyId"
-                    class="form-select"
-                    asp-items="ViewBag.CompanyList"
-                    id="CompanySelect">
-                <option value="">-- select company --</option>
+            <select asp-for="CompanyId" class="form-select" asp-items="ViewBag.CompanyList" id="CompanySelect">
+                <option value="">-- select --</option>
             </select>
-            <span asp-validation-for="CompanyId" class="text-danger"></span>
         </div>
 
-        <div class="row g-3 mt-1">
-            <div class="col-md-4">
-                <label class="form-label">Warehouse</label>
-                <select asp-for="WarehouseId"
-                        class="form-select"
-                        asp-items="ViewBag.WarehouseList"
-                        id="WarehouseSelect"
-                        data-selected="@Model.WarehouseId">
-                    <option value="">-- select warehouse --</option>
-                </select>
-                <span asp-validation-for="WarehouseId" class="text-danger"></span>
-            </div>
+        <div class="col-md-4">
+            <label class="form-label">Warehouse</label>
+            <select asp-for="WarehouseId" class="form-select" asp-items="ViewBag.WarehouseList" id="WarehouseSelect" data-selected="@Model.WarehouseId">
+                <option value="">-- select --</option>
+            </select>
         </div>
-
 
         <div class="col-md-4">
             <label class="form-label">User</label>
             <select asp-for="UserId" class="form-select" asp-items="ViewBag.UserList">
-                <option value="">-- select user --</option>
+                <option value="">-- select --</option>
             </select>
-            <span asp-validation-for="UserId" class="text-danger"></span>
         </div>
 
-        <div class="col-md-2">
-            <label asp-for="ExpeditionDate" class="form-label"></label>
+        <div class="col-md-3">
+            <label asp-for="ExpeditionDate" class="form-label">Expedition date</label>
             <input asp-for="ExpeditionDate" class="form-control" type="date" />
         </div>
 
-        <div class="col-md-2 d-flex align-items-end">
+        <div class="col-md-3 d-flex align-items-end">
             <div class="form-check">
                 <input asp-for="IsBuyOrder" class="form-check-input" />
                 <label asp-for="IsBuyOrder" class="form-check-label"></label>
@@ -55,16 +43,18 @@
         </div>
     </div>
 
-    <hr />
-    <h5>Items</h5>
+    <hr class="my-4" />
+
+    <h6 class="fw-bold mb-3">Items</h6>
+
     <select id="GoodOptions" class="d-none" asp-items="ViewBag.GoodList"></select>
 
     <table class="table table-sm align-middle" id="itemsTable">
         <thead>
             <tr>
-                <th style="width:60%;">Good</th>
-                <th style="width:20%;" class="text-end">Qty</th>
-                <th style="width:20%;"></th>
+                <th>Good</th>
+                <th class="text-end">Qty</th>
+                <th></th>
             </tr>
         </thead>
         <tbody id="itemsBody">
@@ -74,106 +64,65 @@
             }
         </tbody>
     </table>
-    <button type="button" class="btn btn-outline-secondary" id="addRowBtn">Add item</button>
 
-    <div class="mt-3">
-        <button type="submit" class="btn btn-primary">Create</button>
-        <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+    <button type="button" class="btn btn-sm btn-gradient-gray mb-3" id="addRowBtn">+ Add item</button>
+
+    <div class="text-end mt-3">
+        <button type="submit" class="btn btn-gradient-blue">Create</button>
+        <button type="button" class="btn btn-gradient-gray" data-bs-dismiss="modal">Cancel</button>
     </div>
 </form>
 
 @section Scripts {
     <script>
-        (function() {
+        // === Add dynamic rows ===
+        (function () {
             const addBtn = document.getElementById('addRowBtn');
             const body = document.getElementById('itemsBody');
             const goodOptionsHtml = document.getElementById('GoodOptions').innerHTML;
 
             addBtn.addEventListener('click', function () {
                 const index = body.querySelectorAll('tr').length;
-
                 const row = document.createElement('tr');
                 row.innerHTML =
-                    '<td>' +
-                        '<select name="Items[' + index + '].GoodId" class="form-select">' + goodOptionsHtml + '</select>' +
-                    '</td>' +
-                    '<td>' +
-                        '<input name="Items[' + index + '].Quantity" class="form-control text-end" type="number" value="1" min="1" />' +
-                    '</td>' +
-                    '<td>' +
-                        '<button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest(\'tr\').remove()">Remove</button>' +
-                    '</td>';
-
+                    '<td><select name="Items[' + index + '].GoodId" class="form-select">' + goodOptionsHtml + '</select></td>' +
+                    '<td><input name="Items[' + index + '].Quantity" class="form-control text-end" type="number" value="1" min="1" /></td>' +
+                    '<td><button type="button" class="btn btn-sm btn-gradient-red" onclick="this.closest(\'tr\').remove()">Remove</button></td>';
                 body.appendChild(row);
             });
         })();
-    </script>
-    <script>
+
+        // === Load warehouses dynamically ===
         (function () {
-            const companySel   = document.getElementById('CompanySelect');   // ted opravdu existuje
+            const companySel = document.getElementById('CompanySelect');
             const warehouseSel = document.getElementById('WarehouseSelect');
-            const preselected  = warehouseSel.getAttribute('data-selected'); // pro Edit
-
-            function setDisabled(disabled) {
-                warehouseSel.disabled = disabled;
-            }
-
-            function renderOptions(items, selectedValue) {
-                // reset
-                warehouseSel.innerHTML = '<option value="">-- select warehouse --</option>';
-
-                for (const w of items) {
-                    const opt = document.createElement('option');
-                    opt.value = String(w.id);
-                    opt.textContent = w.name;
-                    if (selectedValue && String(selectedValue) === String(w.id)) {
-                        opt.selected = true;
-                    }
-                    warehouseSel.appendChild(opt);
-                }
-            }
+            const preselected = warehouseSel.getAttribute('data-selected');
 
             async function loadWarehouses(companyId, selectedValue) {
-                renderOptions([], null);
-                if (!companyId) { setDisabled(true); return; }
-
-                setDisabled(true);
-                // volitelne: ukaz "loading"
-                const loadingOpt = document.createElement('option');
-                loadingOpt.textContent = 'Loading...';
-                loadingOpt.disabled = true; loadingOpt.selected = true;
-                warehouseSel.appendChild(loadingOpt);
-
+                warehouseSel.innerHTML = '<option>Loading...</option>';
                 try {
-                    const resp = await fetch(`/Orders/WarehousesForCompany?companyId=${encodeURIComponent(companyId)}`);
-                    const data = await resp.json(); // [{ id, name }]
-                    renderOptions(data, selectedValue);
-                } catch (e) {
-                    renderOptions([], null);
-                    const errOpt = document.createElement('option');
-                    errOpt.textContent = 'Failed to load';
-                    errOpt.disabled = true; errOpt.selected = true;
-                    warehouseSel.appendChild(errOpt);
-                } finally {
-                    setDisabled(false);
+                    const resp = await fetch(`/Orders/WarehousesForCompany?companyId=${companyId}`);
+                    const data = await resp.json();
+                    warehouseSel.innerHTML = '<option value="">-- select --</option>';
+                    data.forEach(w => {
+                        const opt = document.createElement('option');
+                        opt.value = w.id;
+                        opt.textContent = w.name;
+                        if (selectedValue == w.id) opt.selected = true;
+                        warehouseSel.appendChild(opt);
+                    });
+                } catch {
+                    warehouseSel.innerHTML = '<option>Failed to load</option>';
                 }
             }
 
-            // Zmena firmy -> nacist sklady, zrusit predvyber
             companySel.addEventListener('change', () => {
-                warehouseSel.setAttribute('data-selected', '');
                 loadWarehouses(companySel.value, null);
             });
 
-            // Inicializace:
-            // - Create: companySel je prazdne -> sklad disable
-            // - Edit: companySel ma hodnotu -> nacti sklady a predvyber Model.WarehouseId
             if (companySel.value) {
                 loadWarehouses(companySel.value, preselected);
-            } else {
-                setDisabled(true);
             }
         })();
     </script>
-
 }
