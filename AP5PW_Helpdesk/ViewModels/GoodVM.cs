@@ -10,7 +10,7 @@ namespace AP5PW_Helpdesk.ViewModels
 		public string Name			{ get; set; } = "";
 
 		[Required]
-		[Range(0.01, 999999.99, ErrorMessage = "Cena musí být kladná.")]
+		[Range(0.01, 999999.99, ErrorMessage = "The price must be above zero.")]
 		[DataType(DataType.Currency)]
 		public decimal Price		{ get; set; }
 

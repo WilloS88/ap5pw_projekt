@@ -1,3 +1,4 @@
+using AP5PW_Helpdesk.Validation;
 using System.ComponentModel.DataAnnotations;
 namespace AP5PW_Helpdesk.ViewModels
 {
@@ -21,6 +22,7 @@ namespace AP5PW_Helpdesk.ViewModels
 		public string? CompanyName      { get; set; } = "";
 
 		[DataType(DataType.Password)]
-        public string? Password         { get; set; }
+		[MustContainNumber]
+		public string? Password         { get; set; }
     }
 }
