@@ -10,7 +10,13 @@ namespace AP5PW_Helpdesk.Controllers
 	public class CompaniesController : Controller
 	{
 		private readonly ICompanyRepository _repo;
-		public CompaniesController(ICompanyRepository repo) => _repo = repo;
+		private readonly ILogger<CompaniesController> _logger;
+
+		public CompaniesController(ICompanyRepository repo, ILogger<CompaniesController> logger)
+		{
+			_repo		= repo;
+			_logger		= logger;
+		}
 
 		// GET: /Companies
 		public async Task<IActionResult> Index()
@@ -25,6 +31,7 @@ namespace AP5PW_Helpdesk.Controllers
 					Postcode	= c.Postcode
 				})];
 
+			_logger.LogDebug("Loaded {Count} companies from repository", vm.Count);
 			return View(vm);
 		}
 
@@ -32,7 +39,11 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Details(int id)
 		{
 			var entity = await _repo.GetByIdAsync(id);
-			if (entity == null) return NotFound();
+			if (entity == null) 
+			{
+				_logger.LogWarning("Company with ID={Id} not found", id);
+				return NotFound();
+			}
 
 			CompanyVM? vm = new()
 			{
@@ -42,6 +53,8 @@ namespace AP5PW_Helpdesk.Controllers
 				Street		= entity.Street,
 				Postcode	= entity.Postcode
 			};
+
+			_logger.LogDebug("Company details loaded for Name={Name}", vm.Name);
 			return View(vm);
 		}
 
@@ -52,7 +65,11 @@ namespace AP5PW_Helpdesk.Controllers
 		[HttpPost, ValidateAntiForgeryToken]
 		public async Task<IActionResult> Create(CompanyVM vm)
 		{
-			if (!ModelState.IsValid) return View(vm);
+			if (!ModelState.IsValid) 
+			{
+				_logger.LogWarning("Invalid model state during company creation");
+				return View(vm);
+			}
 
 			if (await _repo.NameExistsAsync(vm.Name))
 			{
@@ -69,6 +86,7 @@ namespace AP5PW_Helpdesk.Controllers
 			};
 
 			await _repo.AddAsync(entity);
+			_logger.LogInformation("New company created successfully");
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -76,7 +94,11 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Edit(int id)
 		{
 			Company? entity = await _repo.GetByIdAsync(id);
-			if (entity == null) return NotFound();
+			if (entity == null)
+			{
+				_logger.LogWarning("Edit page requested for non-existent company ID={Id}", id);
+				return NotFound();
+			}
 
 			CompanyVM? vm = new()
 			{
@@ -112,6 +134,7 @@ namespace AP5PW_Helpdesk.Controllers
 			};
 
 			await _repo.UpdateAsync(entity);
+			_logger.LogInformation("Company updated successfully: Name={Name}", entity.Name);
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -120,6 +143,7 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Delete(int id)
 		{
 			await _repo.DeleteAsync(id);
+			_logger.LogInformation("Company deleted successfully");
 			return RedirectToAction(nameof(Index));
 		}
 	}

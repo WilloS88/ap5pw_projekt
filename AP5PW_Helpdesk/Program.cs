@@ -4,8 +4,21 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+	.MinimumLevel.Debug()
+	.WriteTo.Console()
+	.WriteTo.File(
+		path: "logs/app.log",
+		rollingInterval: RollingInterval.Day,
+		retainedFileCountLimit: 7,
+		shared: true)
+	.CreateLogger();
+
+builder.Host.UseSerilog();
 
 builder.Services.AddControllersWithViews();
 
@@ -81,5 +94,18 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+try
+{
+	Log.Information("Application starting...");
+	app.Run();
+}
+catch (Exception ex)
+{
+	Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
+{
+	Log.CloseAndFlush();
+}
 
 app.Run();

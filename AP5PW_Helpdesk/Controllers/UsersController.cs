@@ -14,11 +14,13 @@ namespace AP5PW_Helpdesk.Controllers
     {
         private readonly IUserRepository _repo;
         private readonly AppDbContext _db;
+		private readonly ILogger<UsersController> _logger;
 
-        public UsersController(IUserRepository repo, AppDbContext db)
+		public UsersController(IUserRepository repo, AppDbContext db, ILogger<UsersController> logger)
         {
-            _repo	= repo;
-            _db		= db;
+            _repo		= repo;
+            _db			= db;
+			_logger		= logger;
         }
 
         // GET: /Users
@@ -41,14 +43,19 @@ namespace AP5PW_Helpdesk.Controllers
 				})
                 .ToListAsync();
 
-            return View(vm);
+			_logger.LogDebug("Loaded {Count} users from database", vm.Count);
+			return View(vm);
         }
 
         // DETAILS
         public async Task<IActionResult> Details(int id)
         {
             User? entita = await _repo.GetByIdAsync(id);
-            if (entita == null) return NotFound();
+            if (entita == null) 
+			{
+				_logger.LogWarning("User not found");
+				return NotFound();
+			}
 
 			UserVM? vm = new()
             {
@@ -60,7 +67,9 @@ namespace AP5PW_Helpdesk.Controllers
 				CompanyId   = entita.CompanyId,
 				CompanyName = entita.Company != null ? entita.Company.Name : ""
 			};
-            return View(vm);
+
+			_logger.LogDebug("User details loaded successfully, UserName={UserName}", vm.UserName);
+			return View(vm);
         }
 
 		private async Task PopulateRolesAsync(int? selectedId = null)
@@ -112,6 +121,7 @@ namespace AP5PW_Helpdesk.Controllers
 			};
 
 			await _repo.AddAsync(user);
+			_logger.LogInformation("User created successfully: Username={Username}", user.UserName);
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -119,7 +129,11 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Edit(int id)
 		{
 			User? entity = await _repo.GetByIdAsync(id);
-			if (entity == null) return NotFound();
+			if (entity == null)
+			{
+				_logger.LogWarning("Edit requested for non-existent user");
+				return NotFound();
+			}
 
 			var vm = new UserVM
 			{
@@ -169,6 +183,7 @@ namespace AP5PW_Helpdesk.Controllers
 				entity.Password = vm.Password; 
 
 			await _repo.UpdateAsync(entity);
+			_logger.LogInformation("User updated successfully: Username={Username}", entity.UserName);
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -177,8 +192,9 @@ namespace AP5PW_Helpdesk.Controllers
 		[HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            await _repo.DeleteAsync(id);	
-            return RedirectToAction(nameof(Index));
+            await _repo.DeleteAsync(id);
+			_logger.LogInformation("User deleted successfully");
+			return RedirectToAction(nameof(Index));
         }
     }
 }

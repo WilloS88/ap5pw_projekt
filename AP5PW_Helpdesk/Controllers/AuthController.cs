@@ -15,18 +15,23 @@ namespace AP5PW_Helpdesk.Controllers
 	{
 		private readonly AppDbContext _db;
 		private readonly IPasswordHasher<AP5PW_Helpdesk.Entities.User> _hasher;
+		private readonly ILogger<AuthController> _logger;
 
-		public AuthController(AppDbContext db, IPasswordHasher<AP5PW_Helpdesk.Entities.User> hasher)
+		public AuthController(AppDbContext db, IPasswordHasher<Entities.User> hasher, ILogger<AuthController> logger)
 		{
 			_db			= db;
 			_hasher		= hasher;
+			_logger		= logger;
 		}
 
 		// GET /Auth/Login
 		[AllowAnonymous]
 		[HttpGet]
 		public IActionResult Login(string? returnUrl = null)
-			=> View(new LoginVM { ReturnUrl = returnUrl });
+		{
+			_logger.LogInformation("GET /Auth/Login requested. ReturnUrl={ReturnUrl}", returnUrl);
+			return View(new LoginVM { ReturnUrl = returnUrl });
+		}
 
 		// POST /Auth/Login
 		[AllowAnonymous]
@@ -34,6 +39,7 @@ namespace AP5PW_Helpdesk.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Login(LoginVM vm)
 		{
+			_logger.LogInformation("Attempting login for user {UserName}", vm.UserName);
 			if (!ModelState.IsValid) return View(vm);
 
 			Entities.User? user = await _db.Users
@@ -43,6 +49,7 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (user == null)
 			{
+				_logger.LogWarning("Login failed: user {UserName} not found", vm.UserName);
 				ModelState.AddModelError(string.Empty, "Invalid username or password.");
 				return View(vm);
 			}
@@ -78,6 +85,7 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (!ok)
 			{
+				_logger.LogWarning("Login failed: wrong password for user {UserName}", vm.UserName);
 				ModelState.AddModelError(string.Empty, "Invalid username or password.");
 				return View(vm);
 			}
@@ -104,6 +112,8 @@ namespace AP5PW_Helpdesk.Controllers
 			ClaimsIdentity? id = new(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
 			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,new ClaimsPrincipal(identity));
+
+			_logger.LogInformation("User {UserName} signed in successfully", user.UserName);
 
 			if (!string.IsNullOrWhiteSpace(vm.ReturnUrl) && Url.IsLocalUrl(vm.ReturnUrl))
 				return Redirect(vm.ReturnUrl);
@@ -140,6 +150,7 @@ namespace AP5PW_Helpdesk.Controllers
 			bool exists = await _db.Users.AnyAsync(u => u.UserName == vm.UserName);
 			if (exists)
 			{
+				_logger.LogWarning("This {username} is already taken.", vm.UserName);
 				ModelState.AddModelError(nameof(vm.UserName), "This username is already taken.");
 				vm.CompanyList = await _db.Companies
 					.Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name })
@@ -178,11 +189,16 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Logout()
 		{
 			await HttpContext.SignOutAsync();
+			_logger.LogInformation("User {UserName} logging out", User?.Identity?.Name ?? "(anonymous?)");
 			return RedirectToAction(nameof(Login));
 		}
 
 		[AllowAnonymous]
 		[HttpGet]
-		public IActionResult AccessDenied() => View();
+		public IActionResult AccessDenied()
+		{
+			_logger.LogWarning("AccessDenied shown to user {UserName}", User?.Identity?.Name ?? "(anon)");
+			return View();
+		}
 	}
 }

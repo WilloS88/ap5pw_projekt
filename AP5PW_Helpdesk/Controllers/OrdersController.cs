@@ -15,11 +15,13 @@ namespace AP5PW_Helpdesk.Controllers
 	{
 		private readonly IOrderRepository _repo;
 		private readonly AppDbContext _db;
+		private readonly ILogger<OrdersController> _logger;
 
-		public OrdersController(IOrderRepository repo, AppDbContext db)
+		public OrdersController(IOrderRepository repo, AppDbContext db, ILogger<OrdersController> logger)
 		{
-			_repo	= repo;
-			_db		= db;
+			_repo		= repo;
+			_db			= db;
+			_logger		= logger;
 		}
 		
 		private async Task PopulateSelectsAsync(int? companyId = null, int? userId = null, int? warehouseId = null)
@@ -36,6 +38,8 @@ namespace AP5PW_Helpdesk.Controllers
 			ViewBag.UserList		= new SelectList(users, "Id", "UserName", userId);
 			ViewBag.GoodList		= new SelectList(goods, "Id", "Name");
 			ViewBag.WarehouseList	= new SelectList(warehouses, "Id", "Name", warehouseId);
+
+			_logger.LogDebug("Select lists populated successfully");
 		}
 
 		// AJAX: warehouses for company
@@ -48,6 +52,8 @@ namespace AP5PW_Helpdesk.Controllers
 				.OrderBy(w => w.Name)
 				.Select(w => new { id = w.Id, name = w.Name })
 				.ToListAsync();
+
+			_logger.LogDebug("Loaded {Count} warehouses", data.Count);
 			return Json(data);
 		}
 
@@ -71,6 +77,7 @@ namespace AP5PW_Helpdesk.Controllers
 				TotalPrice		= null
 			})];
 
+			_logger.LogDebug("Loaded {Count} orders", vm.Count);
 			return View(vm);
 		}
 
@@ -101,6 +108,7 @@ namespace AP5PW_Helpdesk.Controllers
 				]
 			};
 
+			_logger.LogDebug("Order details loaded successfully");
 			await PopulateSelectsAsync(entity.CompanyId, entity.UserId);
 			return View(vm);
 		}
@@ -128,32 +136,35 @@ namespace AP5PW_Helpdesk.Controllers
 
 			if (!ModelState.IsValid)
 			{
+				_logger.LogWarning("Invalid model state during order creation");
 				await PopulateSelectsAsync(vm.CompanyId, vm.UserId, vm.WarehouseId);
 				return View(vm);
 			}
 
-			var order = new Order
+			Order? order = new()
 			{
-				CompanyId = vm.CompanyId,
-				UserId = vm.UserId,
-				ExpeditionDate = vm.ExpeditionDate,
-				IsBuyOrder = vm.IsBuyOrder,
-				WarehouseId = vm.WarehouseId
+				CompanyId		= vm.CompanyId,
+				UserId			= vm.UserId,
+				ExpeditionDate	= vm.ExpeditionDate,
+				IsBuyOrder		= vm.IsBuyOrder,
+				WarehouseId		= vm.WarehouseId
 			};
 
-			var items = vm.Items!.Select(i => new OrderedGoods
+			List<OrderedGoods>? items = [ ..vm.Items!.Select(i => new OrderedGoods
 			{
-				GoodId = i.GoodId,
-				Quantity = i.Quantity
-			}).ToList();
+				GoodId		= i.GoodId,
+				Quantity	= i.Quantity
+			})];
 
 			try
 			{
 				await _repo.AddAsync(order, items);
+				_logger.LogInformation("Order created successfully");
 				return RedirectToAction(nameof(Index));
 			}
 			catch (InvalidOperationException ex)
 			{
+				_logger.LogError(ex, "Error creating order: {Message}", ex.Message);
 				ModelState.AddModelError(string.Empty, ex.Message);
 				await PopulateSelectsAsync(vm.CompanyId, vm.UserId, vm.WarehouseId);
 				return View(vm);
@@ -164,22 +175,26 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Edit(int id)
 		{
 			var entity = await _repo.GetByIdWithItemsAsync(id);
-			if (entity == null) return NotFound();
-
-			var vm = new OrderEditVM
+			if (entity == null)
 			{
-				Id = entity.Id,
-				CompanyId = entity.CompanyId,
-				UserId = entity.UserId,
-				ExpeditionDate = entity.ExpeditionDate,
-				IsBuyOrder = entity.IsBuyOrder,
-				WarehouseId = entity.WarehouseId,
-				Items = entity.OrderedGoods.OrderBy(i => i.Good!.Name).Select(i => new OrderItemVM
+				_logger.LogWarning("Order not found");
+				return NotFound();
+			}
+
+			OrderEditVM? vm = new()
+			{
+				Id				= entity.Id,
+				CompanyId		= entity.CompanyId,
+				UserId			= entity.UserId,
+				ExpeditionDate	= entity.ExpeditionDate,
+				IsBuyOrder		= entity.IsBuyOrder,
+				WarehouseId		= entity.WarehouseId,
+				Items = [ ..entity.OrderedGoods.OrderBy(i => i.Good!.Name).Select(i => new OrderItemVM
 				{
-					GoodId = i.GoodId,
-					GoodName = i.Good!.Name,
-					Quantity = i.Quantity
-				}).ToList()
+					GoodId		= i.GoodId,
+					GoodName	= i.Good!.Name,
+					Quantity	= i.Quantity
+				})]
 			};
 
 			await PopulateSelectsAsync(vm.CompanyId, vm.UserId, vm.WarehouseId);
@@ -193,7 +208,7 @@ namespace AP5PW_Helpdesk.Controllers
 			if (id != vm.Id) return BadRequest();
 
 			if (vm.Items == null || vm.Items.Count == 0)
-				ModelState.AddModelError(nameof(vm.Items), "Objednávka musí mít alespoň jednu položku.");
+				ModelState.AddModelError(nameof(vm.Items), "The order need to have atleast one item.");
 
 			if (vm.CompanyId > 0 && vm.WarehouseId > 0)
 			{
@@ -227,11 +242,13 @@ namespace AP5PW_Helpdesk.Controllers
 			try
 			{
 				await _repo.UpdateAsync(order, items);
+				_logger.LogInformation("Order updated successfully");
 				return RedirectToAction(nameof(Index));
 			}
 			catch (InvalidOperationException ex)
 			{
 				ModelState.AddModelError(string.Empty, ex.Message);
+				_logger.LogError(ex, "Error updating order: {Message}", ex.Message);
 				await PopulateSelectsAsync(vm.CompanyId, vm.UserId, vm.WarehouseId);
 				return View(vm);
 			}
@@ -242,6 +259,7 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Delete(int id)
 		{
 			await _repo.DeleteAsync(id);
+			_logger.LogInformation("Order deleted successfully");
 			return RedirectToAction(nameof(Index));
 		}
 	}

@@ -14,10 +14,13 @@ namespace AP5PW_Helpdesk.Controllers
 	{
 		private readonly IWarehouseRepository _repo;
 		private readonly AppDbContext _db;
-		public WarehousesController(IWarehouseRepository repo, AppDbContext db)
+		private readonly ILogger<WarehousesController> _logger;
+
+		public WarehousesController(IWarehouseRepository repo, AppDbContext db, ILogger<WarehousesController> logger)
 		{
-			_repo	= repo;
-			_db		= db;
+			_repo		= repo;
+			_db			= db;
+			_logger		= logger;
 		}
 
 		// helper: companies SelectList
@@ -39,6 +42,7 @@ namespace AP5PW_Helpdesk.Controllers
 				CompanyName		= vm.Company != null ? vm.Company.Name : ""
 			})];
 
+			_logger.LogDebug("Loaded {Count} warehouses from database", vm.Count);
 			return View(vm);
 		}
 
@@ -52,7 +56,11 @@ namespace AP5PW_Helpdesk.Controllers
 					.ThenInclude(wg => wg.Goods)
 				.FirstOrDefaultAsync(w => w.Id == id);
 
-			if (entity == null) return NotFound();
+			if (entity == null) 
+			{
+				_logger.LogWarning("Warehouse with not found");
+				return NotFound();
+			}
 
 			WarehouseDetailVM? vm = new()
 			{
@@ -105,6 +113,7 @@ namespace AP5PW_Helpdesk.Controllers
 			};
 
 			await _repo.AddAsync(entity);
+			_logger.LogInformation("Warehouse created successfully");
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -151,6 +160,7 @@ namespace AP5PW_Helpdesk.Controllers
 			};
 
 			await _repo.UpdateAsync(entity);
+			_logger.LogInformation("Warehouse updated successfully: Name={Name}", entity.Name);
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -159,6 +169,7 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Delete(int id)
 		{
 			await _repo.DeleteAsync(id);
+			_logger.LogInformation("Warehouse deleted successfully");
 			return RedirectToAction(nameof(Index));
 		}
 	}

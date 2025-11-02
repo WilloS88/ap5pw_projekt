@@ -14,12 +14,15 @@ namespace AP5PW_Helpdesk.Controllers
     {
         private readonly IGoodRepository _repo;
         private readonly AppDbContext _db;
+		private readonly ILogger<GoodsController> _logger;
 
-        public GoodsController(IGoodRepository repo, AppDbContext db)
+		public GoodsController(IGoodRepository repo, AppDbContext db, ILogger<GoodsController> logger)
         {
             _repo	= repo;
             _db		= db;
-        }
+			_logger = logger;
+
+		}
 
 		// GET: /Goods
 		public async Task<IActionResult> Index()
@@ -33,6 +36,7 @@ namespace AP5PW_Helpdesk.Controllers
 					ProductNum	= entity.ProductNum
 				})];
 
+			_logger.LogDebug("Loaded {Count} goods from repository", vm.Count);
 			return View(vm);
 		}
 
@@ -40,7 +44,11 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Details(int id)
 		{
 			var entity = await _repo.GetByIdAsync(id);
-			if (entity == null) return NotFound();
+			if (entity == null) 
+			{
+				_logger.LogWarning("Goods.Details: product with ID={Id} not found", id);
+				return NotFound();
+			}
 
 			GoodVM? vm = new()
 			{
@@ -49,22 +57,33 @@ namespace AP5PW_Helpdesk.Controllers
 				Price		= entity.Price,
 				ProductNum	= entity.ProductNum
 			};
+
+			_logger.LogDebug("Goods.Details loaded successfully for Name={Name}", vm.Name);
 			return View(vm);
 		}
 
 		// GET: /Goods/Create
-		public IActionResult Create() => View(new GoodVM());
+		public IActionResult Create() 
+		{
+			_logger.LogInformation("User {User} opened Goods.Create page", User?.Identity?.Name ?? "unknown");
+			return View(new GoodVM());
+		}
 
 		// POST: /Goods/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Create(GoodVM vm)
 		{
-			if (!ModelState.IsValid) return View(vm);
+			if (!ModelState.IsValid)
+			{
+				_logger.LogWarning("Invalid model state while creating good");
+				return View(vm);
+			}
 
 			if (!string.IsNullOrWhiteSpace(vm.ProductNum) &&
 				await _repo.ProductNumExistsAsync(vm.ProductNum))
 			{
+				_logger.LogWarning("Failed to create product because it already exists");
 				ModelState.AddModelError(nameof(vm.ProductNum), "This product number already exists.");
 				return View(vm);
 			}
@@ -77,6 +96,7 @@ namespace AP5PW_Helpdesk.Controllers
 			};
 
 			await _repo.AddAsync(entity);
+			_logger.LogInformation("New product created successfully: Name={Name}", entity.Name);
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -84,7 +104,11 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Edit(int id)
 		{
 			Good? entity = await _repo.GetByIdAsync(id);
-			if (entity == null) return NotFound();
+			if (entity == null) 
+			{
+				_logger.LogWarning("Goods.Edit: product not found");
+				return NotFound();
+			}
 
 			GoodVM? vm = new()
 			{
@@ -101,7 +125,11 @@ namespace AP5PW_Helpdesk.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Edit(int id, GoodVM vm)
 		{
-			if (id != vm.Id) return BadRequest();
+			if (id != vm.Id) 
+			{
+				_logger.LogError("Goods.Edit: ID mismatch");
+				return BadRequest();
+			}
 			if (!ModelState.IsValid) return View(vm);
 
 			if (!string.IsNullOrWhiteSpace(vm.ProductNum) &&
@@ -119,6 +147,7 @@ namespace AP5PW_Helpdesk.Controllers
 			entity.ProductNum	= vm.ProductNum;
 
 			await _repo.UpdateAsync(entity);
+			_logger.LogInformation("Product updated successfully: Name={Name}", entity.Name);
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -128,6 +157,7 @@ namespace AP5PW_Helpdesk.Controllers
 		public async Task<IActionResult> Delete(int id)
 		{
 			await _repo.DeleteAsync(id);
+			_logger.LogInformation("Product with ID={Id} deleted successfully", id);
 			return RedirectToAction(nameof(Index));
 		}
 	}
