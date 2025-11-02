@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B2EB017F-0BD6-4223-A5DF-78ADA463C07E}|AP5PW_Helpdesk.Tests\\AP5PW_Helpdesk.Tests.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk.tests\\companiescontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2EB017F-0BD6-4223-A5DF-78ADA463C07E}|AP5PW_Helpdesk.Tests\\AP5PW_Helpdesk.Tests.csproj|solutionrelative:ap5pw_helpdesk.tests\\companiescontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|c:\\users\\roman vil\u010D\u00E1k\\desktop\\school\\t\u0159e\u0165\u00E1k\\pokrocile weby\\ap5pw_projekt\\ap5pw_helpdesk\\controllers\\warehousescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D29C3275-5549-4829-967F-3DCEB7A89DCE}|AP5PW_Helpdesk\\AP5PW_Helpdesk.csproj|solutionrelative:ap5pw_helpdesk\\controllers\\warehousescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -38,24 +42,41 @@
       "DocumentGroups": [
         {
           "DockedHeight": 337,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CompaniesControllerTest.cs",
+              "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk.Tests\\CompaniesControllerTest.cs",
+              "RelativeDocumentMoniker": "AP5PW_Helpdesk.Tests\\CompaniesControllerTest.cs",
+              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk.Tests\\CompaniesControllerTest.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk.Tests\\CompaniesControllerTest.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T09:48:17.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "WarehousesController.cs",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\WarehousesController.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\WarehousesController.cs",
               "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\WarehousesController.cs",
               "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\WarehousesController.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAwwKcAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAwwJIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-02T09:34:12.085Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\UsersController.cs",
@@ -68,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\OrdersController.cs",
@@ -81,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GoodsController.cs",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\GoodsController.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\GoodsController.cs",
@@ -94,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CompaniesController.cs",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\CompaniesController.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\CompaniesController.cs",
@@ -107,12 +128,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\AuthController.cs*",
-              "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\AuthController.cs*",
+              "ToolTip": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "AP5PW_Helpdesk\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-02T08:24:53.172Z",
@@ -120,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Roman Vil\u010D\u00E1k\\Desktop\\SCHOOL\\T\u0159e\u0165\u00E1k\\Pokrocile weby\\ap5pw_projekt\\AP5PW_Helpdesk\\Program.cs",
               "RelativeDocumentMoniker": "AP5PW_Helpdesk\\Program.cs",
@@ -130,10 +151,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-02T08:22:59.384Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         },
