@@ -130,23 +130,13 @@
             margin: 0 1.2rem 1.2rem 1.2rem;
             box-shadow: inset 0 0 20px rgba(255,255,255,0.05), 0 0 25px rgba(102,16,242,0.25);
             backdrop-filter: blur(20px) saturate(150%);
-            -webkit-backdrop-filter: blur(20px) saturate(150%);
             transition: all 0.3s ease;
         }
-
-            .user-card:hover {
-                transform: translateY(-2px);
-                box-shadow: inset 0 0 25px rgba(255,255,255,0.08), 0 0 35px rgba(102,16,242,0.35);
-            }
 
         .username {
             font-weight: 700;
             font-size: 1rem;
             color: #fff;
-        }
-
-        .user-card small {
-            color: rgba(255,255,255,0.7);
         }
 
         .btn-logout {
@@ -168,18 +158,6 @@
                 filter: brightness(1.1);
             }
 
-        .user-card .material-symbols-rounded {
-            font-size: 26px;
-            color: #ff4f70;
-            transition: 0.3s ease;
-        }
-
-        .user-card:hover .material-symbols-rounded {
-            transform: rotate(-8deg) scale(1.1);
-            filter: drop-shadow(0 0 6px rgba(255,79,112,0.6));
-        }
-
-        /* === Footer === */
         .sidebar-footer {
             color: rgba(255,255,255,0.6);
             font-size: 0.8rem;
@@ -258,22 +236,21 @@
     </div>
 
     <!-- Sidebar / Offcanvas -->
-    <nav id="sideMenu" class="sidebar offcanvas-lg offcanvas-start d-flex flex-column" tabindex="-1" aria-labelledby="sideMenuLabel" data-bs-scroll="true">
+    <nav id="sideMenu" class="sidebar offcanvas-lg offcanvas-start d-flex flex-column"
+         tabindex="-1" aria-labelledby="sideMenuLabel" data-bs-scroll="true" data-bs-backdrop="false">
         <div class="offcanvas-header d-lg-none">
             <h5 class="offcanvas-title" id="sideMenuLabel">Helpdesk</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
         <div class="offcanvas-body d-flex flex-column p-0 h-100">
-            <!-- Brand -->
             <div class="brand">
                 <span class="material-symbols-rounded fs-2">support_agent</span>
                 <span>Helpdesk</span>
             </div>
 
-            <!-- Nav links -->
             <ul class="nav flex-column flex-grow-1 px-2">
-                <li><a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" href="/"><span class="material-symbols-rounded">home</span> Home</a></li>
+                <li><a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" href="/"> <span class="material-symbols-rounded">home</span> Home</a></li>
                 @if (User.IsInRole("admin"))
                 {
                     <li><a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Users" ? "active" : "")" href="/Users"><span class="material-symbols-rounded">group</span> Users</a></li>
@@ -284,7 +261,6 @@
                 <li><a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Warehouses" ? "active" : "")" href="/Warehouses"><span class="material-symbols-rounded">warehouse</span> Warehouses</a></li>
             </ul>
 
-            <!-- User card + footer -->
             <div class="mt-auto w-100">
                 @if (User.Identity?.IsAuthenticated == true)
                 {
